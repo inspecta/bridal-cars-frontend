@@ -37,3 +37,72 @@
     transform: rotate(360deg);
   }
 }
+
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 180, 0, 0.5),
+      rgba(255, 180, 0, 0.5)
+    ),
+    url('./images/fiat-homepage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-container h1 {
+  font-family: 'Phudu', cursive;
+  letter-spacing: 7px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.login {
+  margin: 25px;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+}
+
+.btn-primary {
+  background-color: rgb(152, 193, 15) !important;
+  border-color: rgb(152, 193, 15) !important;
+  border-radius: 50px !important;
+  font-size: 20px !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .btn-container h1 {
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+
+  .login {
+    margin: 10px;
+  }
+
+  .btn {
+    width: 100px;
+    height: 30px;
+  }
+
+  .btn-primary {
+    font-size: 13px !important;
+  }
+}
