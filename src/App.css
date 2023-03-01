@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-duplicate-selectors */
 .app {
   display: flex;
   justify-content: center;
@@ -97,6 +99,23 @@
   color: #fff !important;
 }
 
+.hamburger_menu {
+  display: none;
+  border: none;
+  background-color: inherit;
+  font-size: xx-large;
+}
+
+.hamburger_menu > svg {
+  fill: #414141;
+}
+
+.cancel_menu {
+  font-size: xx-large;
+  border: none;
+  background-color: inherit;
+}
+
 @media only screen and (max-width: 500px) {
   .btn-container h1 {
     letter-spacing: 1px;
@@ -115,11 +134,23 @@
   .btn-primary {
     font-size: 13px !important;
   }
+
+  .hamburger_menu {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 576px) {
   .nav_container {
     width: 60vw;
+  }
+
+  .nav_container {
+    display: none !important;
+  }
+
+  .hamburger_menu {
+    display: block;
   }
 }
 
@@ -127,22 +158,36 @@
   .nav_container {
     width: 42vw;
   }
+
+  .hamburger_menu {
+    display: block;
+  }
+
+  .nav_container {
+    display: none !important;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 850px) {
   .nav_container {
     width: 35vw;
   }
-}
 
-@media only screen and (min-width: 851px) and (max-width: 992px) {
   .nav_container {
-    width: 30vw;
+    display: none !important;
+  }
+
+  .hamburger_menu {
+    display: block;
   }
 }
 
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
+@media only screen and (min-width: 851px) and (max-width: 1200px) {
   .nav_container {
-    width: 25vw;
+    width: 28vw;
   }
+}
+
+.show_nav {
+  display: block !important;
 }
