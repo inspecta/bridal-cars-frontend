@@ -103,3 +103,10 @@ button {
     flex-direction: row;
   }
 }
+
+@font-face {
+  font-family: "vespa";
+  src:
+    local("vespa"),
+    url("./fonts/vespa.ttf") format("truetype");
+}

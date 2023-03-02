@@ -1,16 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+import Login from './components/Auth/Login';
+import Signup from './components/Auth/Signup';
+import Navigation from './components/Navigations/Navigations';
 import CarDetails from './components/CarDetails';
 import Cars from './components/Cars';
 import AddCar from './components/AddCar';
+import './App.css';
+import './fonts/vespa.ttf';
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
+    <div className="d-flex">
+      {location.pathname !== '/' && <Navigation />}
       <Routes>
-        <Route path="/" element={<Cars />} />
-        <Route path="/cars/:id" element={<CarDetails />} />
-        <Route path="/car-details" element={<CarDetails />} />
-        <Route path="/add-car" element={<AddCar />} />
+        <Route exact path="/" element={<Auth />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/cars" element={<Cars />} />
+        <Route exact path="/cars/:id" element={<CarDetails />} />
+        <Route exact path="/car-details" element={<CarDetails />} />
+        <Route exact path="/add-car" element={<AddCar />} />
       </Routes>
     </div>
   );
