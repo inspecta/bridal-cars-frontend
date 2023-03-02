@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
-import { fetchAllCars } from '../redux/features/carSlice';
+import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
 
 const Cars = () => {

@@ -4,9 +4,9 @@ import Auth from './components/Auth/Auth';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Navigation from './components/Navigations/Navigations';
-import CarDetails from './components/CarDetails';
-import Cars from './components/Cars';
-import AddCar from './components/AddCar';
+import CarDetails from './components/cars/CarDetails';
+import Cars from './components/cars/Cars';
+import AddCar from './components/cars/AddCar';
 import './App.css';
 import './fonts/vespa.ttf';
 
