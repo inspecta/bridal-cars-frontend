@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Login = () => (
-  <div>
+  <div className="App">
     <h1>login form</h1>
   </div>
 );

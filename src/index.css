@@ -25,3 +25,10 @@ code {
     'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "vespa";
+  src:
+    local("vespa"),
+    url("./fonts/vespa.ttf") format("truetype");
+}
