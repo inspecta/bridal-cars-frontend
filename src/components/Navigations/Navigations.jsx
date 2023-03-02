@@ -39,9 +39,9 @@ const Navigation = () => {
           Bridal Car <br /> Rental
         </h3>
         <div className="nav_links">
-          <Nav.Link href="#">LIST ALL CARS</Nav.Link>
+          <Nav.Link href="/cars">LIST ALL CARS</Nav.Link>
           <Nav.Link href="#1">RESERVE CAR</Nav.Link>
-          <Nav.Link href="#2">ADD CAR</Nav.Link>
+          <Nav.Link href="/add-car">ADD CAR</Nav.Link>
           <Nav.Link href="#3">DELETE CAR</Nav.Link>
           <Nav.Link href="#4">LIST ALL RESERVATIONS</Nav.Link>
         </div>

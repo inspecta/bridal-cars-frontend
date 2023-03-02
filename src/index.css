@@ -1,29 +1,107 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Roboto+Slab:wght@100;200;300;400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Circular Book", sans-serif;
+  background-color: #f5f6fa;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+.cars-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.car-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-details-more-info {
+  padding-bottom: 2em;
+}
+
+.car-details-more-info > p:nth-child(even) {
+  background-color: rgb(211, 211, 211);
+}
+
+.car-details-photo {
+  width: 50%;
+}
+
+.car-list-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.cars-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 80vw;
+}
+
+button {
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.car-component-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.btnPrev,
+.btnNext {
+  border: none;
+  padding: 5px 15px 0 10px;
+  background-color: #96bf11;
+}
+
+.btnNext > svg,
+.btnPrev > svg {
+  background: transparent;
+  color: #fff;
+}
+
+.btnPrev {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.btnNext {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.btnPrev:disabled,
+.btnNext:disabled {
+  background-color: #e3e3e3;
+}
+
+/* Responsiveness */
+@media only screen and (min-width: 768px) {
+  .car-details {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @font-face {
