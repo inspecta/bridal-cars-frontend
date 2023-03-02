@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
@@ -14,7 +15,9 @@ function App() {
   const location = useLocation();
   return (
     <div className="d-flex">
-      {location.pathname !== '/' && <Navigation />}
+      {location.pathname !== '/' &&
+        location.pathname !== '/signup' &&
+        location.pathname !== '/login' && <Navigation />}
       <Routes>
         <Route exact path="/" element={<Auth />} />
         <Route exact path="/login" element={<Login />} />
