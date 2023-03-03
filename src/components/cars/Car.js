@@ -37,7 +37,7 @@ const Car = ({ car, onClick }) => (
 );
 
 Car.propTypes = {
-  car: PropTypes.objectOf.isRequired,
+  car: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
