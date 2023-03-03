@@ -8,6 +8,8 @@ import Navigation from './components/Navigations/Navigations';
 import CarDetails from './components/cars/CarDetails';
 import Cars from './components/cars/Cars';
 import AddCar from './components/cars/AddCar';
+import PrivateRoutes from './utils/PrivateRoutes';
+import AuthenticationRoutes from './utils/AuthenticationRoutes';
 import './App.css';
 import './fonts/vespa.ttf';
 
@@ -19,12 +21,16 @@ function App() {
         location.pathname !== '/signup' &&
         location.pathname !== '/login' && <Navigation />}
       <Routes>
-        <Route exact path="/" element={<Auth />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/cars" element={<Cars />} />
-        <Route exact path="/car-details" element={<CarDetails />} />
-        <Route exact path="/add-car" element={<AddCar />} />
+        <Route element={<AuthenticationRoutes />}>
+          <Route exact path="/" element={<Auth />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+        </Route>
+        <Route element={<PrivateRoutes />}>
+          <Route exact path="/cars" element={<Cars />} />
+          <Route exact path="/car-details" element={<CarDetails />} />
+          <Route exact path="/add-car" element={<AddCar />} />
+        </Route>
       </Routes>
     </div>
   );
