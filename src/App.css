@@ -58,6 +58,19 @@
   width: 20vw;
   position: relative;
   border-right: 3px solid #f9f9f9;
+  z-index: 1;
+  overflow-x: hidden;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .nav_links {
@@ -116,6 +129,11 @@
   font-size: xx-large;
   border: none;
   background-color: inherit;
+  margin: 0.5em;
+}
+
+.cancel_menu > svg {
+  fill: #f00;
 }
 
 .login_container {
@@ -201,60 +219,100 @@
   .btn-primary {
     font-size: 13px !important;
   }
-
-  .hamburger_menu {
-    display: block;
-  }
 }
 
 @media only screen and (max-width: 576px) {
   .nav_container {
-    width: 60vw;
+    width: 65vw;
+    display: none !important;
   }
 
-  .nav_container {
-    display: none !important;
+  .nav_socials_container > .nav_socials > svg {
+    font-size: small;
+  }
+
+  .nav_socials_container > .nav_copyright,
+  .nav_socials_container > .nav_copyright > span {
+    font-size: x-small;
   }
 
   .hamburger_menu {
     display: block;
+    position: absolute;
+    margin: 0.5em;
+  }
+
+  .hamburger_menu > svg {
+    fill: #415305;
+  }
+
+  .add_car_container > form {
+    font-size: small;
+  }
+
+  .add_car_field > button {
+    font-size: small;
   }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 767px) {
   .nav_container {
     width: 42vw;
+    display: none !important;
+  }
+
+  .nav_socials_container > .nav_socials > svg {
+    font-size: large;
   }
 
   .hamburger_menu {
     display: block;
+    position: absolute;
+    margin: 0.5em;
   }
 
-  .nav_container {
-    display: none !important;
+  .hamburger_menu > svg {
+    fill: #415305;
+  }
+
+  .add_car_container > form {
+    font-size: medium;
+  }
+
+  .add_car_field > button {
+    font-size: medium;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 850px) {
   .nav_container {
     width: 35vw;
-  }
-
-  .nav_container {
     display: none !important;
   }
 
   .hamburger_menu {
     display: block;
+    position: absolute;
+    margin: 0.5em;
+  }
+
+  .hamburger_menu > svg {
+    fill: #415305;
   }
 }
 
 @media only screen and (min-width: 851px) and (max-width: 1200px) {
   .nav_container {
-    width: 28vw;
+    width: 25vw;
+  }
+
+  .nav_socials_container > .nav_socials > svg {
+    font-size: larger;
   }
 }
 
 .show_nav {
   display: block !important;
+  position: fixed;
+  background-color: #f9f9f9;
 }
