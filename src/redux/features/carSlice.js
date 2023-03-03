@@ -4,13 +4,18 @@ import types from '../types';
 
 const url = 'http://localhost:3000/api/v1/cars';
 
-export const fetchAllCars = createAsyncThunk(
-  types.FETCH_CARS,
-  async () => {
-    const response = await axios.get(url);
+export const fetchAllCars = createAsyncThunk(types.FETCH_CARS, async () => {
+  const response = await axios.get(url);
+  return response.data;
+});
+
+export const addCar = createAsyncThunk(types.ADD_CAR, async (newCar) => {
+  const response = await axios.post(url, newCar);
+  if (response.status === 200 && response.statusText === 'OK') {
     return response.data;
-  },
-);
+  }
+  return null;
+});
 
 const initialState = {
   cars: [],

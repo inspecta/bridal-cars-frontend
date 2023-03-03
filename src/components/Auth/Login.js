@@ -13,8 +13,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const userState = useSelector((state) => state.user);
-
   const handleInput = (e) => {
     if (e.target.name === 'email') {
       setFormData({
