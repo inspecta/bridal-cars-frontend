@@ -116,6 +116,61 @@
   background-color: inherit;
 }
 
+.login_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  color: #fff;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(150, 191, 2, 0.7),
+      rgba(150, 191, 2, 0.7)
+    ),
+    url('./images/bridal-car-login.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login_container > * {
+  align-self: center;
+}
+
+.login_container > h1 {
+  font-family: 'vespa', 'Courier New', Courier, monospace;
+}
+
+.login_container > form {
+  font-size: large;
+  font-weight: bold;
+}
+
+.login_field > p {
+  margin: 1em 0 0 0;
+}
+
+.login_field > input {
+  border: none;
+  padding: 0.5em;
+}
+
+.login_field > button {
+  border: none;
+  margin-top: 1em;
+  font-size: large;
+  font-weight: bold;
+  background-color: #415305;
+  color: #fff;
+  padding: 0.5em;
+}
+
+.login_field > button:hover {
+  background-color: #97bf0f;
+}
+
 @media only screen and (max-width: 500px) {
   .btn-container h1 {
     letter-spacing: 1px;
