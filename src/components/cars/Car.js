@@ -24,7 +24,7 @@ const Car = ({ car, onClick }) => (
       alt="bridal-car"
       style={{ width: '450px' }}
     />
-    <h1>{car.name}</h1>
+    <h1 className="car-name">{car.name}</h1>
     <div className="car-component-info">
       <p>{car.description}</p>
       <div className="social-icons">
