@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
 import { fetchUser } from '../../redux/features/user';
 
-const salt = bcrypt.genSaltSync(10);
+const salt = '$2a$10$CwTycUXWue0Thq9StjUM0u';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Login = () => {
     } else {
       setFormData({
         email: formData.email,
-        password: bcrypt.hashSync(e.target.value, salt),
+        password: e.target.value,
       });
     }
   };
@@ -33,8 +33,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.email.length > 0 && formData.password.length > 0) {
+      const hashedPassword = bcrypt.hashSync(formData.password, salt);
       const userData = {
-        user: formData,
+        user: { ...formData, password: hashedPassword },
       };
       dispatch(fetchUser(userData)).then((result) => {
         if (
