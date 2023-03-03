@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .car-details {
@@ -35,6 +36,10 @@
 
 .car-details-more-info {
   padding-bottom: 2em;
+}
+
+.car-component-info > p {
+  color: #828282;
 }
 
 .car-details-more-info > p:nth-child(even) {
@@ -60,6 +65,16 @@
 button {
   margin: 0 10px;
   font-size: 24px;
+}
+
+.car-component {
+  text-align: center;
+}
+
+.car-name {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .car-component-info {
@@ -96,6 +111,55 @@ button {
   background-color: #e3e3e3;
 }
 
+.register-user-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons > span {
+  border: 1px solid rgb(203, 203, 203);
+  border-radius: 50px;
+  padding: 5px;
+  font-size: 10px;
+  color: rgb(203, 203, 203);
+  margin-right: 10px;
+}
+
+.social-icons > span:last-child {
+  margin-right: 0;
+}
+
+.social-icons > span:hover {
+  cursor: pointer;
+  border: 1px solid rgb(149, 149, 149);
+  color: rgb(174, 174, 174);
+}
+
+.add-car-btn {
+  text-align: center;
+}
+
+.add-car-btn > a {
+  text-decoration: none;
+  background-color: #96bf11;
+  color: #fff;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-car-btn > a:hover {
+  background-color: #749700;
+  color: #fff;
+}
+
 /* Responsiveness */
 @media only screen and (min-width: 768px) {
   .car-details {
@@ -106,7 +170,5 @@ button {
 
 @font-face {
   font-family: "vespa";
-  src:
-    local("vespa"),
-    url("./fonts/vespa.ttf") format("truetype");
+  src: local("vespa"), url("./fonts/vespa.ttf") format("truetype");
 }
