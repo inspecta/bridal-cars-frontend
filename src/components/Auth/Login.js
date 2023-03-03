@@ -2,7 +2,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 import { fetchUser } from '../../redux/features/user';
+
+const salt = bcrypt.genSaltSync(10);
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +25,7 @@ const Login = () => {
     } else {
       setFormData({
         email: formData.email,
-        password: e.target.value,
+        password: bcrypt.hashSync(e.target.value, salt),
       });
     }
   };

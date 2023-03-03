@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
+
+const salt = bcrypt.genSaltSync(10);
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -31,7 +34,8 @@ const Signup = () => {
   // Handle user registration
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { username, email, password };
+    const hashedPassword = bcrypt.hashSync(password, salt);
+    const user = { username, email, password: hashedPassword };
 
     try {
       const response = await axios.post(url, { user });
@@ -40,7 +44,9 @@ const Signup = () => {
         const jwt = response.headers.authorization;
         localStorage.setItem('jwt', jwt);
 
-        navigate('/cars', { state: { message: `${username} successfully registered!` } });
+        navigate('/cars', {
+          state: { message: `${username} successfully registered!` },
+        });
       }
     } catch (error) {
       return error.response.data;
