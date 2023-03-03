@@ -75,14 +75,16 @@ const Cars = () => {
         </button>
         <div className="cars-list" ref={scrollRef}>
           {
-            getAllCars.cars.map((car) => (
-              <Car
-                key={car.id}
-                car={car}
-                onClick={() => handleClick(car)}
-                onKeyDown={() => handleClick()}
-              />
-            ))
+            getAllCars.cars.length > 0
+              ? getAllCars.cars.map((car) => (
+                <Car
+                  key={car.id}
+                  car={car}
+                  onClick={() => handleClick(car)}
+                  onKeyDown={() => handleClick()}
+                />
+              ))
+              : <p>No cars available.</p>
           }
         </div>
         <button
