@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
@@ -8,8 +8,10 @@ import Car from './Car';
 const Cars = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const getAllCars = useSelector((state) => state.cars);
+  const message = location.state?.message;
 
   useEffect(() => {
     dispatch(fetchAllCars());
@@ -59,6 +61,9 @@ const Cars = () => {
     <div className="cars-container">
       <h1>LATEST BRIDAL CARS</h1>
       <p>Please select a bridal car</p>
+      <div>
+        {message && <p>{message}</p>}
+      </div>
       <div className="car-list-wrapper">
         <button
           onClick={handlePrevClick}
@@ -70,14 +75,16 @@ const Cars = () => {
         </button>
         <div className="cars-list" ref={scrollRef}>
           {
-            getAllCars.cars.map((car) => (
-              <Car
-                key={car.id}
-                car={car}
-                onClick={() => handleClick(car)}
-                onKeyDown={() => handleClick()}
-              />
-            ))
+            getAllCars.cars.length > 0
+              ? getAllCars.cars.map((car) => (
+                <Car
+                  key={car.id}
+                  car={car}
+                  onClick={() => handleClick(car)}
+                  onKeyDown={() => handleClick()}
+                />
+              ))
+              : <p>No cars available.</p>
           }
         </div>
         <button
@@ -89,7 +96,7 @@ const Cars = () => {
           <FaCaretRight />
         </button>
       </div>
-      <div className="">
+      <div className="add-car-btn">
         <Link to="/add-car">Add Car</Link>
       </div>
     </div>
