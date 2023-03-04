@@ -1,16 +1,21 @@
 import React from 'react';
+// import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { FaFacebookF, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { deleteCar } from '../../redux/features/carSlice';
 
 const Car = ({ car, onClick, showButton }) => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const removeCarFromStore = (id) => {
-    dispatch(deleteCar(id));
+    dispatch(deleteCar(id)).then((resp) => {
+      if (resp.payload !== undefined) {
+        navigate('/cars');
+      }
+    });
   };
-  console.log(showButton);
   return (
     <>
       <div

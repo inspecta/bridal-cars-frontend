@@ -98,9 +98,11 @@ const Cars = ({ showButton }) => {
           <FaCaretRight />
         </button>
       </div>
-      <div className="add-car-btn">
-        <Link to="/add-car">Add Car</Link>
-      </div>
+      {!showButton && (
+        <div className="add-car-btn">
+          <Link to="/add-car">Add Car</Link>
+        </div>
+      )}
     </div>
   );
 };
