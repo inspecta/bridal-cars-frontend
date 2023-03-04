@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
 
-const Cars = () => {
+const Cars = ({ showButton }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -82,6 +83,7 @@ const Cars = () => {
                   car={car}
                   onClick={() => handleClick(car)}
                   onKeyDown={() => handleClick()}
+                  showButton={showButton}
                 />
               ))
               : <p>No cars available.</p>
@@ -103,4 +105,7 @@ const Cars = () => {
   );
 };
 
+Cars.propTypes = {
+  showButton: PropTypes.bool.isRequired,
+};
 export default Cars;
