@@ -6,6 +6,7 @@ const Car = ({ car, onClick }) => (
   <div
     className="car-component"
     role="button"
+    style={{ width: '33.33%' }}
     tabIndex="0"
     onClick={onClick}
     onKeyDown={(event) => {
@@ -19,13 +20,18 @@ const Car = ({ car, onClick }) => (
       onClick();
     }}
   >
-    <img
-      src={car.photo}
-      alt="bridal-car"
-      style={{ width: '450px' }}
+    <div
+      className="car-component-img"
+      style={{
+        backgroundImage: `url(${car.photo})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'contain',
+      }}
     />
-    <h1 className="car-name">{car.name}</h1>
     <div className="car-component-info">
+      <h1 className="car-name">{car.name}</h1>
+      <div className="dotten-line" />
       <p>{car.description}</p>
       <div className="social-icons">
         <span><FaFacebookF /></span>
@@ -37,7 +43,7 @@ const Car = ({ car, onClick }) => (
 );
 
 Car.propTypes = {
-  car: PropTypes.object.isRequired,
+  car: PropTypes.objectOf.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
