@@ -45,6 +45,10 @@ const Login = () => {
       });
     }
   };
+
+  const redirectToRegister = () => {
+    navigate('/signup');
+  };
   return (
     <div className="login_container">
       <h1>Welcome back</h1>
@@ -69,6 +73,9 @@ const Login = () => {
         </div>
         <div className="login_field">
           <button type="submit">Login</button>
+        </div>
+        <div className="login_field btn_2">
+          <button type="button" onClick={() => redirectToRegister()}>Register</button>
         </div>
       </form>
     </div>

@@ -52,11 +52,16 @@ const Signup = () => {
 
     return true;
   };
+
+  const redirectToLogin = () => {
+    navigate('/login');
+  };
+
   return (
-    <div className="register-user-container">
+    <div className="login_container">
       <h1>Register User</h1>
       <form onSubmit={handleSubmit}>
-        <div className="field">
+        <div className="login_field">
           <p>Username:</p>
           <input
             type="text"
@@ -65,7 +70,7 @@ const Signup = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div className="login_field">
           <p>Email:</p>
           <input
             type="email"
@@ -74,7 +79,7 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div className="login_field">
           <p>Password:</p>
           <input
             type="password"
@@ -83,7 +88,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="field">
+        <div className="login_field">
           <p>Confirm Password:</p>
           <input
             type="password"
@@ -91,8 +96,11 @@ const Signup = () => {
             placeholder="Confirm your password"
           />
         </div>
-        <div className="field">
+        <div className="login_field">
           <button type="submit">Register</button>
+        </div>
+        <div className="login_field btn_2">
+          <button type="button" onClick={() => redirectToLogin()}>Login</button>
         </div>
       </form>
     </div>

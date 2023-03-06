@@ -6,13 +6,12 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       to bottom,
       rgba(255, 180, 0, 0.5),
       rgba(255, 180, 0, 0.5)
     ),
-    url('./images/fiat-homepage.jpg');
+    url("./images/fiat-homepage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -27,7 +26,7 @@
 }
 
 .btn-container h1 {
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
   letter-spacing: 7px;
   color: #fff;
   font-weight: 600;
@@ -69,7 +68,7 @@
   transform: rotate(-15deg);
   padding: 2em;
   font-weight: 900;
-  font-family: 'vespa', 'Courier New', Courier, monospace;
+  font-family: "vespa", "Courier New", Courier, monospace;
 }
 
 .nav_links > a {
@@ -123,13 +122,12 @@
   width: 100%;
   color: #fff;
   height: 100vh;
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       to bottom,
       rgba(150, 191, 2, 0.7),
       rgba(150, 191, 2, 0.7)
     ),
-    url('./images/bridal-car-login.jpg');
+    url("./images/bridal-car-login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -140,7 +138,7 @@
 }
 
 .login_container > h1 {
-  font-family: 'vespa', 'Courier New', Courier, monospace;
+  font-family: "vespa", "Courier New", Courier, monospace;
 }
 
 .login_container > form {
@@ -167,8 +165,18 @@
   padding: 0.5em;
 }
 
+.btn_2 > button {
+  background-color: #97bf0f;
+  border: 1px solid #fff;
+  width: 100%;
+}
+
 .login_field > button:hover {
   background-color: #97bf0f;
+}
+
+.btn_2 > button:hover {
+  background-color: #415305;
 }
 
 @media only screen and (max-width: 500px) {
