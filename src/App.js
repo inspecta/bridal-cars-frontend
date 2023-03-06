@@ -1,6 +1,7 @@
 /* eslint-disable operator-linebreak */
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Auth from './components/Auth/Auth';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
@@ -10,16 +11,26 @@ import Cars from './components/cars/Cars';
 import AddCar from './components/cars/AddCar';
 import PrivateRoutes from './utils/PrivateRoutes';
 import AuthenticationRoutes from './utils/AuthenticationRoutes';
+import AlertComponent from './components/Alert/Alert';
 import './App.css';
 import './fonts/vespa.ttf';
 
 function App() {
+  const alert = useSelector((state) => state.alert);
+
   const location = useLocation();
   return (
     <div className="d-flex">
       {location.pathname !== '/' &&
         location.pathname !== '/signup' &&
         location.pathname !== '/login' && <Navigation />}
+      {alert.status && (
+        <AlertComponent
+          heading={alert.heading}
+          message={alert.message}
+          variant={alert.variant}
+        />
+      )}
       <Routes>
         <Route element={<AuthenticationRoutes />}>
           <Route exact path="/" element={<Auth />} />
