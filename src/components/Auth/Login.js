@@ -38,7 +38,12 @@ const Login = () => {
           result.payload !== undefined &&
           Object.keys(result.payload).length > 0
         ) {
-          navigate('/cars');
+          navigate('/cars',
+            {
+              state: {
+                user: result.payload,
+              },
+            });
         }
       });
     }

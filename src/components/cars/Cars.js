@@ -13,6 +13,7 @@ const Cars = ({ showButton }) => {
 
   const getAllCars = useSelector((state) => state.cars);
   const message = location.state?.message;
+  const { user } = location.state;
 
   useEffect(() => {
     dispatch(fetchAllCars());
@@ -24,6 +25,7 @@ const Cars = ({ showButton }) => {
       {
         state: {
           cars: carObject,
+          user,
         },
       },
     );

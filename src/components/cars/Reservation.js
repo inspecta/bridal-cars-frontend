@@ -3,9 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const Reservation = () => {
   const location = useLocation();
-  const { car } = location.state;
-
-  console.log(car);
+  const { car, user } = location.state;
 
   return (
     <div className="add_car_container">
@@ -17,6 +15,7 @@ const Reservation = () => {
             type="text"
             name="name"
             placeholder="Enter User Name"
+            value={user.username}
           />
         </div>
         <div className="add_car_field">

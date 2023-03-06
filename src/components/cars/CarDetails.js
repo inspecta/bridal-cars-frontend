@@ -7,6 +7,7 @@ const CarDetails = () => {
 
   const { state } = useLocation();
   const selectedCar = state.cars;
+  const { user } = state;
 
   if (!selectedCar) {
     return <div>Car not found.</div>;
@@ -47,12 +48,12 @@ const CarDetails = () => {
               {selectedCar.created_at}
             </p>
           </div>
-          {/* <button type="button" onClick={() => handleReserve(selectedCar)}>Reserve</button> */}
           <div className="add-car-btn">
             <Link
               to="/reserve-car"
               state={{
                 car: selectedCar,
+                user,
               }}
             >
               Reserve
