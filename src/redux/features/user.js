@@ -18,6 +18,18 @@ export const fetchUser = createAsyncThunk(
   },
 );
 
+export const logoutUser = createAsyncThunk(
+  types.LOGOUT_USER,
+  async (userToken) => {
+    const user = await axios.delete(`${baseApi}/users/sign_out`, {
+      headers: {
+        Authorization: `${userToken}`,
+      },
+    });
+    return user.data;
+  },
+);
+
 const userReducer = (state = [], action) => {
   switch (action.type) {
     case `${types.SET_FETCHED_USER}/fulfilled`:

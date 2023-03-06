@@ -210,6 +210,12 @@
   z-index: 2;
 }
 
+.log_out_btn {
+  font-weight: bold;
+  margin-bottom: 2em;
+  font-size: medium;
+}
+
 @media only screen and (max-width: 500px) {
   .btn-container h1 {
     letter-spacing: 1px;
@@ -262,6 +268,12 @@
   .add_car_field > button {
     font-size: small;
   }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: smaller;
+  }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 767px) {
@@ -291,6 +303,12 @@
   .add_car_field > button {
     font-size: medium;
   }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: smaller;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 850px) {
@@ -308,6 +326,12 @@
   .hamburger_menu > svg {
     fill: #415305;
   }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: medium;
+  }
 }
 
 @media only screen and (min-width: 851px) and (max-width: 1200px) {
@@ -317,6 +341,12 @@
 
   .nav_socials_container > .nav_socials > svg {
     font-size: larger;
+  }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: medium;
   }
 }
 

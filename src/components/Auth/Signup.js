@@ -14,23 +14,6 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  // // Check if JWT already exists in the local storage
-  // const [jwt, setJwt] = useState(null);
-
-  // useEffect(() => {
-  //   const storedJwt = localStorage.getItem('jwt');
-  //   if (storedJwt) {
-  //     setJwt(storedJwt);
-  //   }
-  // }, []);
-
-  // // If jwt exists, redirect to the main page
-  // useEffect(() => {
-  //   if (jwt) {
-  //     navigate('/cars', { state: { message: 'You are already signed in.' } });
-  //   }
-  // }, [jwt, navigate]);
-
   // Handle user registration
   const handleSubmit = async (e) => {
     e.preventDefault();
