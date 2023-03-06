@@ -22,6 +22,14 @@ export const deleteCar = createAsyncThunk(types.DELETE_CAR, async (carId) => {
   return response.data;
 });
 
+export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
+  const response = await axios.post('http://localhost:3000/api/v1/reservations', car);
+  if (response.status === 200 && response.statusText === 'OK') {
+    // return response.data;
+    console.log(response.data);
+  }
+  // return null;
+});
 const initialState = {
   cars: [],
   error: null,
