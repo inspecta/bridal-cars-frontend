@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { reserveCar } from '../../redux/features/carSlice';
+import { reserveCar, updateCar } from '../../redux/features/carSlice';
 
 const Reservation = () => {
-  const location = useLocation();
-  const { car, user } = location.state;
+  const { state } = useLocation();
+  const { car, user } = state;
+  console.log(user);
+  console.log(car);
+
   const [formData, setFormData] = useState({
     user_id: user.id,
     car_id: car.id,
@@ -16,13 +19,23 @@ const Reservation = () => {
 
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
-
+  const createReservation = (reserved) => {
+    dispatch(reserveCar(formData)).then((result) => {
+      if (
+        result.payload !== undefined
+          && Object.keys(result.payload).length > 0
+      ) {
+        dispatch(updateCar({ id: car.id, reserved }));
+      }
+    });
+  };
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.target.reset();
     // if (
     //   formData.length > 0
     // ) {
@@ -32,13 +45,13 @@ const Reservation = () => {
     //       Object.keys(result.payload).length > 0
     //     ) {
     //     //   navigate('/cars');
-            
+
     //         dispatch(updateCar())
     //     }
     //   });
     // }
     // dispatch(reserveCar(formData));
-    console.log(formData);
+    // console.log(formData);
   };
 
   return (
@@ -52,6 +65,7 @@ const Reservation = () => {
             name="username"
             placeholder="Enter User Name"
             value={user.username}
+            readOnly
             // onChange={handleInput}
           />
         </div>
@@ -62,6 +76,7 @@ const Reservation = () => {
             name="carname"
             placeholder="Enter name"
             value={car.name}
+            readOnly
             // onChange={handleInput}
           />
         </div>
@@ -72,6 +87,7 @@ const Reservation = () => {
             name="price"
             placeholder="Price per hour"
             value={car.price}
+            readOnly
             // onChange={handleInput}
           />
         </div>
@@ -103,7 +119,7 @@ const Reservation = () => {
           />
         </div>
         <div className="add_car_field">
-          <button type="submit">Reserve</button>
+          <button type="submit" onClick={() => createReservation(car.reserved)}>Reserve</button>
         </div>
       </form>
     </div>

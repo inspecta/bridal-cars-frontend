@@ -3,6 +3,7 @@ const SET_FETCHED_USER = 'redux/user/SET_FETCHED_USER';
 const ADD_CAR = 'redux/cars/ADD_CAR';
 const DELETE_CAR = 'redux/cars/DELETE_CAR';
 const RESERVE_CAR = 'redux/cars/RESERVE_CAR';
+const UPDATE_CAR = 'redux/cars/UPDATE_CAR';
 
 export default {
   FETCH_CARS,
@@ -10,4 +11,5 @@ export default {
   ADD_CAR,
   DELETE_CAR,
   RESERVE_CAR,
+  UPDATE_CAR,
 };
