@@ -17,6 +17,11 @@ export const addCar = createAsyncThunk(types.ADD_CAR, async (newCar) => {
   return null;
 });
 
+export const deleteCar = createAsyncThunk(types.DELETE_CAR, async (carId) => {
+  const response = await axios.delete(`${url}/${carId}`);
+  return response.data;
+});
+
 const initialState = {
   cars: [],
   error: null,
