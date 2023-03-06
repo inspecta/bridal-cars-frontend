@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addCar } from '../../redux/features/carSlice';
+import { triggerAlert } from '../../redux/features/alert';
 
 const AddCar = () => {
   const [formData, setFormData] = useState({
@@ -35,8 +36,24 @@ const AddCar = () => {
           Object.keys(result.payload).length > 0
         ) {
           navigate('/cars');
+        } else {
+          dispatch(
+            triggerAlert({
+              heading: 'Error in server',
+              message: 'Please try again later!',
+              variant: 'danger',
+            }),
+          );
         }
       });
+    } else {
+      dispatch(
+        triggerAlert({
+          heading: 'Error Adding Car',
+          message: 'Please check your car details inputs!',
+          variant: 'danger',
+        }),
+      );
     }
   };
 
