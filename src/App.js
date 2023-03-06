@@ -11,6 +11,7 @@ import AddCar from './components/cars/AddCar';
 import DeleteCar from './components/cars/DeleteCar';
 import './App.css';
 import './fonts/vespa.ttf';
+import Reservation from './components/cars/Reservation';
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/car-details" element={<CarDetails />} />
         <Route exact path="/add-car" element={<AddCar />} />
         <Route exact path="/delete-car" element={<DeleteCar />} />
+        <Route exact path="/reserve-car" element={<Reservation />} />
 
       </Routes>
     </div>
