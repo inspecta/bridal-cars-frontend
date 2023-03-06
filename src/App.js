@@ -8,6 +8,7 @@ import Navigation from './components/Navigations/Navigations';
 import CarDetails from './components/cars/CarDetails';
 import Cars from './components/cars/Cars';
 import AddCar from './components/cars/AddCar';
+import ReserveCar from './components/cars/ReserveCar';
 import './App.css';
 import './fonts/vespa.ttf';
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/cars" element={<Cars />} />
         <Route exact path="/car-details" element={<CarDetails />} />
         <Route exact path="/add-car" element={<AddCar />} />
+        <Route exact path="/reserve-car" element={<ReserveCar />} />
       </Routes>
     </div>
   );
