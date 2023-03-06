@@ -4,6 +4,7 @@ const LOGOUT_USER = 'redux/user/LOGOUT_USER';
 const ADD_CAR = 'redux/cars/ADD_CAR';
 const SET_ALERT = 'redux/alert/SET_ALERT';
 const REMOVE_ALERT = 'redux/alert/REMOVE_ALERT';
+const DELETE_CAR = 'redux/cars/DELETE_CAR';
 
 export default {
   FETCH_CARS,
@@ -12,4 +13,5 @@ export default {
   SET_ALERT,
   REMOVE_ALERT,
   LOGOUT_USER,
+  DELETE_CAR,
 };

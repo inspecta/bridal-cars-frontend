@@ -12,6 +12,7 @@ import AddCar from './components/cars/AddCar';
 import PrivateRoutes from './utils/PrivateRoutes';
 import AuthenticationRoutes from './utils/AuthenticationRoutes';
 import AlertComponent from './components/Alert/Alert';
+import DeleteCar from './components/cars/DeleteCar';
 import './App.css';
 import './fonts/vespa.ttf';
 
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/cars" element={<Cars />} />
           <Route exact path="/car-details" element={<CarDetails />} />
           <Route exact path="/add-car" element={<AddCar />} />
+          <Route exact path="/delete-car" element={<DeleteCar />} />
         </Route>
       </Routes>
     </div>
