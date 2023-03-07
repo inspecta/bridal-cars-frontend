@@ -7,7 +7,7 @@ const CarDetails = () => {
 
   const { state } = useLocation();
   const selectedCar = state.cars;
-  const { user } = state;
+  // const user = localStorage.getItem('user');
 
   if (!selectedCar) {
     return <div>Car not found.</div>;
@@ -50,10 +50,9 @@ const CarDetails = () => {
           </div>
           <div className="add-car-btn">
             <Link
-              to="/reserve-car"
+              to="/reservation-form"
               state={{
                 car: selectedCar,
-                user,
               }}
             >
               Reserve

@@ -16,6 +16,7 @@ import DeleteCar from './components/cars/DeleteCar';
 import './App.css';
 import './fonts/vespa.ttf';
 import Reservation from './components/cars/Reservation';
+import ReserveHome from './components/cars/ReserveHome';
 
 function App() {
   const alert = useSelector((state) => state.alert);
@@ -44,8 +45,8 @@ function App() {
           <Route exact path="/car-details" element={<CarDetails />} />
           <Route exact path="/add-car" element={<AddCar />} />
           <Route exact path="/delete-car" element={<DeleteCar />} />
-          <Route exact path="/reserve-car" element={<Reservation />} />
-
+          <Route exact path="/reserve-car" element={<ReserveHome />} />
+          <Route exact path="/reservation-form" element={<Reservation />} />
         </Route>
       </Routes>
     </div>

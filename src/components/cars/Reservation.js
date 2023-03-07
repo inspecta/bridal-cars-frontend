@@ -5,9 +5,8 @@ import { reserveCar, updateCar } from '../../redux/features/carSlice';
 
 const Reservation = () => {
   const { state } = useLocation();
-  const { car, user } = state;
-  console.log(user);
-  console.log(car);
+  const { car } = state;
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const [formData, setFormData] = useState({
     user_id: user.id,
@@ -36,22 +35,6 @@ const Reservation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    // if (
-    //   formData.length > 0
-    // ) {
-    //   dispatch(reserveCar(formData)).then((result) => {
-    //     if (
-    //       result.payload !== undefined &&
-    //       Object.keys(result.payload).length > 0
-    //     ) {
-    //     //   navigate('/cars');
-
-    //         dispatch(updateCar())
-    //     }
-    //   });
-    // }
-    // dispatch(reserveCar(formData));
-    // console.log(formData);
   };
 
   return (
