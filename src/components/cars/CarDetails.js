@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { FaAngleLeft } from 'react-icons/fa';
 
 const CarDetails = () => {
@@ -13,13 +13,19 @@ const CarDetails = () => {
   }
 
   const handleClick = () => {
-    navigate('/');
+    navigate('/cars');
   };
 
-  const handleReserve = () => true;
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
 
   return (
-    <>
+    <div className="car-details-container">
       <div className="car-details">
         <div className="car-details-photo">
           <img
@@ -31,29 +37,61 @@ const CarDetails = () => {
         <div className="car-details-info">
           <h2>{selectedCar.name}</h2>
           <div className="car-details-more-info">
-            <p>{selectedCar.description}</p>
-            <p>
-              Reservation Price:
-              {selectedCar.price}
-            </p>
-            <p>
-              Car Type:
-              {selectedCar.model}
-            </p>
-            <p>
-              Created Date:
-              {selectedCar.created_at}
-            </p>
+            <p style={{ fontWeight: 'bold', textAlign: 'justify' }}>{selectedCar.description}</p>
+            <table style={{ width: '100%', paddingTop: '1em' }}>
+              <tbody>
+                <tr>
+                  <td>Price:</td>
+                  <td>
+                    $
+                    {selectedCar.price}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Model:</td>
+                  <td>{selectedCar.model}</td>
+                </tr>
+                <tr>
+                  <td>Reserved:</td>
+                  {
+                    selectedCar.reserved
+                      ? <td>Reserved</td>
+                      : <td>Available</td>
+                  }
+                </tr>
+                <tr>
+                  <td>Date:</td>
+                  <td>{formatDate(selectedCar.created_at)}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <button type="button" onClick={() => handleReserve()}>Reserve</button>
+
+          {/* Circle */}
+          <div className="circle">
+            <div className="inner-circle" />
+          </div>
+
+          <div className="reserve-btn">
+            {
+              selectedCar.reserved
+                ? <span>Reserved</span>
+                : (
+                  <Link to="/reserve-car">
+                    <p>Reserve</p>
+                    <p className="icon">{'>'}</p>
+                  </Link>
+                )
+            }
+          </div>
         </div>
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', display: 'flex' }} className="back-btn">
         <button onClick={() => handleClick()} type="button">
           <FaAngleLeft />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
