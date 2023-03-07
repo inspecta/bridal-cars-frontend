@@ -143,7 +143,7 @@
       rgba(150, 191, 2, 0.7),
       rgba(150, 191, 2, 0.7)
     ),
-  url('./images/bridal-car-login.jpg');
+    url("./images/bridal-car-login.jpg");
   color: #fff;
 }
 
@@ -154,7 +154,7 @@
 
 .login_container > h1,
 .add_car_container > h1 {
-  font-family: 'vespa', 'Courier New', Courier, monospace;
+  font-family: "vespa", "Courier New", Courier, monospace;
 }
 
 .login_container > form,
@@ -174,10 +174,8 @@
   padding: 0.5em;
 }
 
-
 .login_field > button,
 .add_car_field > button {
-  border: none;
   margin-top: 1em;
   font-size: large;
   font-weight: bold;
@@ -214,7 +212,7 @@
       rgba(150, 191, 2, 0.7),
       rgba(150, 191, 2, 0.7)
     ),
-    url('./images/add_car_background.jpeg');
+    url("./images/add_car_background.jpeg");
   color: #fff;
 }
 

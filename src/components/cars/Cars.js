@@ -35,9 +35,9 @@ const Cars = ({ showButton }) => {
       let newCarsPerPage;
 
       // Number of cars to display depending on screen size
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 851) {
         newCarsPerPage = 3;
-      } else if (window.innerWidth >= 600 && window.innerWidth <= 767) {
+      } else if (window.innerWidth >= 600 && window.innerWidth <= 850) {
         newCarsPerPage = 2;
       } else {
         newCarsPerPage = 1;

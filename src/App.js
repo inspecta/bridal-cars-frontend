@@ -9,7 +9,6 @@ import Navigation from './components/Navigations/Navigations';
 import CarDetails from './components/cars/CarDetails';
 import Cars from './components/cars/Cars';
 import AddCar from './components/cars/AddCar';
-import ReserveCar from './components/cars/ReserveCar';
 import PrivateRoutes from './utils/PrivateRoutes';
 import AuthenticationRoutes from './utils/AuthenticationRoutes';
 import AlertComponent from './components/Alert/Alert';
