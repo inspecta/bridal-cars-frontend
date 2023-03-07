@@ -6,7 +6,7 @@ const Car = ({ car, onClick }) => (
   <div
     className="car-component"
     role="button"
-    style={{ width: '33.33%' }}
+    style={{ width: '100%' }}
     tabIndex="0"
     onClick={onClick}
     onKeyDown={(event) => {

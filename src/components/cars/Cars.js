@@ -15,8 +15,7 @@ const Cars = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [displayedCars, setDisplayedCars] = useState([]);
-
-  const carsPerPage = 3;
+  const [carsPerPage, setCarsPerPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchAllCars());
@@ -28,7 +27,30 @@ const Cars = () => {
     const carsToDisplay = getAllCars.cars.slice(startIndex, endIndex);
     setDisplayedCars(carsToDisplay);
     setTotalPages(Math.ceil(getAllCars.cars.length / carsPerPage));
-  }, [currentPage, getAllCars.cars]);
+  }, [currentPage, getAllCars.cars, carsPerPage]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      let newCarsPerPage;
+
+      // Number of cars to display depending on screen size
+      if (window.innerWidth >= 768) {
+        newCarsPerPage = 3;
+      } else if (window.innerWidth >= 600 && window.innerWidth <= 767) {
+        newCarsPerPage = 2;
+      } else {
+        newCarsPerPage = 1;
+      }
+
+      setCarsPerPage(newCarsPerPage);
+      setCurrentPage(1);
+    };
+
+    // Add evenlistener to the screen size
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleClick = (carObject) => {
     navigate('/car-details', {

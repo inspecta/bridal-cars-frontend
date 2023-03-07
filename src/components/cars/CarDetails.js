@@ -37,14 +37,14 @@ const CarDetails = () => {
         <div className="car-details-info">
           <h2>{selectedCar.name}</h2>
           <div className="car-details-more-info">
-            <p style={{ fontWeight: 'bold' }}>{selectedCar.description}</p>
-            <table style={{ width: '100%' }}>
+            <p style={{ fontWeight: 'bold', textAlign: 'justify' }}>{selectedCar.description}</p>
+            <table style={{ width: '100%', paddingTop: '1em' }}>
               <tbody>
                 <tr>
                   <td>Price:</td>
                   <td>
-                    {selectedCar.price}
                     $
+                    {selectedCar.price}
                   </td>
                 </tr>
                 <tr>
