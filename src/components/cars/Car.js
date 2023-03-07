@@ -1,6 +1,10 @@
 import React from 'react';
+// import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { FaFacebookF, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { deleteCar } from '../../redux/features/carSlice';
 
 const Car = ({ car, onClick }) => (
   <div
@@ -38,13 +42,21 @@ const Car = ({ car, onClick }) => (
         <span><FaTwitter /></span>
         <span><FaLinkedin /></span>
       </div>
-    </div>
-  </div>
-);
+      {showButton
+        && (
+        <div>
+          <button type="button" onClick={() => removeCarFromStore(car.id)}>Delete</button>
+        </div>
+        )}
+
+    </>
+  );
+};
 
 Car.propTypes = {
   car: PropTypes.objectOf.isRequired,
   onClick: PropTypes.func.isRequired,
+  showButton: PropTypes.bool.isRequired,
 };
 
 export default Car;

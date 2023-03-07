@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
+
+const salt = '$2a$10$CwTycUXWue0Thq9StjUM0u';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -11,36 +14,25 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  // Check if JWT already exists in the local storage
-  const [jwt, setJwt] = useState(null);
-
-  useEffect(() => {
-    const storedJwt = localStorage.getItem('jwt');
-    if (storedJwt) {
-      setJwt(storedJwt);
-    }
-  }, []);
-
-  // If jwt exists, redirect to the main page
-  useEffect(() => {
-    if (jwt) {
-      navigate('/cars', { state: { message: 'You are already signed in.' } });
-    }
-  }, [jwt, navigate]);
-
   // Handle user registration
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { username, email, password };
-
+    const hashedPassword = bcrypt.hashSync(password, salt);
+    const user = { username, email, password: hashedPassword };
     try {
       const response = await axios.post(url, { user });
       if (response.status === 200) {
         // Store the JWT (Local storage)
-        const jwt = response.headers.authorization;
-        localStorage.setItem('jwt', jwt);
+        const userDetails = {
+          id: response.data.status.data.id,
+          username: response.data.status.data.username,
+          token: response.headers.authorization,
+        };
+        localStorage.setItem('user', JSON.stringify(userDetails));
 
-        navigate('/cars', { state: { message: `${username} successfully registered!` } });
+        navigate('/cars', {
+          state: { message: `${username} successfully registered!` },
+        });
       }
     } catch (error) {
       return error.response.data;

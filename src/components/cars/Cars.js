@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
 
-const Cars = () => {
+const Cars = ({ showButton }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -97,6 +98,8 @@ const Cars = () => {
                   key={car.id}
                   car={car}
                   onClick={() => handleClick(car)}
+                  onKeyDown={() => handleClick()}
+                  showButton={showButton}
                 />
               ))
               : <p>No cars available.</p>
@@ -111,11 +114,16 @@ const Cars = () => {
           <FaCaretRight />
         </button>
       </div>
-      <div className="add-car-btn">
-        <Link to="/add-car">Add Car</Link>
-      </div>
+      {!showButton && (
+        <div className="add-car-btn">
+          <Link to="/add-car">Add Car</Link>
+        </div>
+      )}
     </div>
   );
 };
 
+Cars.propTypes = {
+  showButton: PropTypes.bool.isRequired,
+};
 export default Cars;
