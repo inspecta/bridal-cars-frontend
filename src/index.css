@@ -36,7 +36,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 90%;
+  height: 100vh;
 }
 
 .car-details-info {
@@ -44,11 +45,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  padding: 20px;
 }
 
 .car-details-more-info {
   padding-bottom: 2em;
+}
+
+.car-details-more-info > p {
+  font-size: 0.7em;
 }
 
 .car-component-img {
@@ -67,6 +71,7 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  font-size: 0.8em;
 }
 
 tr:nth-child(even) {
@@ -110,7 +115,7 @@ button {
 .btnPrev,
 .btnNext {
   border: none;
-  padding: 15px 20px;
+  padding: 15px 15px;
   background-color: #96bf11;
   display: flex;
   align-items: center;
@@ -169,7 +174,7 @@ button {
 
 .social-icons > span:hover {
   cursor: pointer;
-  border: 1px solid rgb(149, 149, 149);
+  border: 2px solid rgb(149, 149, 149);
   color: rgb(174, 174, 174);
 }
 
@@ -187,25 +192,26 @@ button {
   cursor: pointer;
 }
 
+.reserve-btn > a {
+  display: flex;
+  gap: 1em;
+  text-decoration: none;
+}
+
 .add-car-btn > a:hover {
   background-color: #749700;
   color: #fff;
 }
 
 .reserve-btn {
-  padding: 10px 25px;
+  padding: 5px 15px;
   background-color: #96bf11;
   border-radius: 20px;
+  margin: 0 auto 1em auto;
 }
 
 .reserve-btn:hover {
   background-color: #749700;
-}
-
-.reserve-btn > a {
-  display: flex;
-  gap: 1em;
-  text-decoration: none;
 }
 
 .reserve-btn > a > p {
@@ -248,7 +254,7 @@ button {
       indigo,
       violet
     );
-  margin-bottom: 2em;
+  margin: 0 auto 1em auto;
 }
 
 .inner-circle {
@@ -266,15 +272,51 @@ button {
 
 /* Responsiveness */
 @media only screen and (min-width: 768px) {
+  .cars-container {
+    height: auto;
+  }
+
+  .car-details-container {
+    align-items: unset;
+  }
+
   .car-details {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
+  .car-details-photo {
+    display: flex;
+    align-items: center;
+  }
+
+  .car-details-info {
+    padding: 20px;
+  }
+
   .car-details-info > h2 {
     text-transform: uppercase;
     text-align: right;
+    margin-bottom: 1em;
+    font-weight: 800;
+  }
+
+  .car-details-more-info > p {
+    font-size: 1em;
+  }
+
+  .circle {
+    margin: 0 0 0 2em;
+  }
+
+  .reserve-btn {
+    margin: 1em 0 1em 0;
+    padding: 10px 25px;
+  }
+
+  table {
+    font-size: 1em;
   }
 }
 
