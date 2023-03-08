@@ -14,7 +14,7 @@
       rgba(255, 180, 0, 0.5),
       rgba(255, 180, 0, 0.5)
     ),
-    url('./images/fiat-homepage.jpg');
+    url("./images/fiat-homepage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -29,7 +29,7 @@
 }
 
 .btn-container h1 {
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
   letter-spacing: 7px;
   color: #fff;
   font-weight: 600;
@@ -84,7 +84,7 @@
   transform: rotate(-15deg);
   padding: 2em;
   font-weight: 900;
-  font-family: 'vespa', 'Courier New', Courier, monospace;
+  font-family: "vespa", "Courier New", Courier, monospace;
 }
 
 .nav_links > a {
@@ -143,7 +143,7 @@
       rgba(150, 191, 2, 0.7),
       rgba(150, 191, 2, 0.7)
     ),
-    url('./images/bridal-car-login.jpg');
+    url("./images/bridal-car-login.jpg");
   color: #fff;
 }
 
@@ -154,7 +154,7 @@
 
 .login_container > h1,
 .add_car_container > h1 {
-  font-family: 'vespa', 'Courier New', Courier, monospace;
+  font-family: "vespa", "Courier New", Courier, monospace;
 }
 
 .login_container > form,
@@ -176,18 +176,33 @@
 
 .login_field > button,
 .add_car_field > button {
-  border: none;
   margin-top: 1em;
   font-size: large;
   font-weight: bold;
   background-color: #415305;
   color: #fff;
   padding: 0.5em;
+  width: 100%;
+  border: 1px solid #fff;
+}
+
+.btn_2 {
+  text-align: center;
+}
+
+.btn_2 > button {
+  background-color: #597301;
+  width: 50%;
+  border: none !important;
 }
 
 .login_field > button:hover,
 .add_car_field > button:hover {
   background-color: #97bf0f;
+}
+
+.btn_2 > button:hover {
+  background-color: #415305;
 }
 
 .add_car_container {
@@ -197,7 +212,7 @@
       rgba(150, 191, 2, 0.7),
       rgba(150, 191, 2, 0.7)
     ),
-    url('./images/add_car_background.jpeg');
+    url("./images/add_car_background.jpeg");
   color: #fff;
 }
 
