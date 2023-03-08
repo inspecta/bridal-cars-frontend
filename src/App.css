@@ -44,6 +44,11 @@
   height: 60px;
 }
 
+.delete-button {
+  width: 70px !important;
+  height: 40px !important;
+}
+
 .btn-primary {
   background-color: rgb(152, 193, 15) !important;
   border-color: rgb(152, 193, 15) !important;
@@ -244,6 +249,11 @@
   .btn {
     width: 100px;
     height: 30px;
+  }
+
+  .delete-button {
+    width: 70px !important;
+    height: 40px !important;
   }
 
   .btn-primary {
