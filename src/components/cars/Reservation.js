@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { reserveCar, updateCar } from '../../redux/features/carSlice';
+import { reserveCar } from '../../redux/features/reservationSlice';
+import { updateCar } from '../../redux/features/carSlice';
 
 const Reservation = () => {
   const { state } = useLocation();

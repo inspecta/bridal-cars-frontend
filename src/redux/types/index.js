@@ -5,8 +5,9 @@ const ADD_CAR = 'redux/cars/ADD_CAR';
 const SET_ALERT = 'redux/alert/SET_ALERT';
 const REMOVE_ALERT = 'redux/alert/REMOVE_ALERT';
 const DELETE_CAR = 'redux/cars/DELETE_CAR';
-const RESERVE_CAR = 'redux/cars/RESERVE_CAR';
+const RESERVE_CAR = 'redux/reservations/RESERVE_CAR';
 const UPDATE_CAR = 'redux/cars/UPDATE_CAR';
+const FETCH_RESERVATIONS = 'redux/reservations/FETCH_RESERVATIONS';
 
 export default {
   FETCH_CARS,
@@ -18,4 +19,5 @@ export default {
   DELETE_CAR,
   RESERVE_CAR,
   UPDATE_CAR,
+  FETCH_RESERVATIONS,
 };
