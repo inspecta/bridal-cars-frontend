@@ -93,16 +93,6 @@ const CarDetails = () => {
                 )
             }
           </div>
-          {/* <div className="add-car-btn">
-            <Link
-              to="/reservation-form"
-              state={{
-                car: selectedCar,
-              }}
-            >
-              Reserve
-            </Link>
-          </div> */}
         </div>
       </div>
       <div style={{ textAlign: 'center', display: 'flex' }} className="back-btn">

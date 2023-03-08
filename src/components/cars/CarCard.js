@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -76,55 +76,53 @@ const CarCard = ({ showButton, showHeader }) => {
   };
 
   return (
-		<div className="cars-container">
-		{showHeader ? (
-			<div>	
-				<h1 className="cars-container-header">RESERVE YOUR BRIDAL CAR</h1>
-			</div>
-		) : (
-			<div>
-				<h1 className="cars-container-header">LATEST BRIDAL CARS</h1>
-				<p className="cars-container-subheader">Choose your bridal car today!</p>
-			</div>
-		) }	
-		<div className="dotten-line" />
-		<div>
-			{message && <p>{message}</p>}
-		</div>
-		<div className="car-list-wrapper">
-			<button
-				onClick={handlePrevClick}
-				disabled={currentPage === 1}
-				type="button"
-				className="btnPrev"
-			>
-				<FaCaretLeft />
-			</button>
-			<div className="cars-list">
-				{
-					displayedCars.length > 0
-						? displayedCars.map((car) => (
-							<Car
-								key={car.id}
-								car={car}
-								onClick={() => handleClick(car)}
-								onKeyDown={() => handleClick()}
-								showButton={showButton}
-							/>
-						))
-						: <p>No cars available.</p>
-				}
-			</div>
-			<button
-				onClick={handleNextClick}
-				disabled={currentPage === totalPages}
-				type="button"
-				className="btnNext"
-			>
-				<FaCaretRight />
-			</button>
-		</div>
-	</div>
+    <div className="cars-container">
+      {showHeader ? (
+        <div>
+          <h1 className="cars-container-header">RESERVE YOUR BRIDAL CAR</h1>
+        </div>
+      ) : (
+        <div>
+          <h1 className="cars-container-header">LATEST BRIDAL CARS</h1>
+          <p className="cars-container-subheader">Choose your bridal car today!</p>
+        </div>
+      ) }
+      <div className="dotten-line" />
+      <div>
+        {message && <p>{message}</p>}
+      </div>
+      <div className="car-list-wrapper">
+        <button
+          onClick={handlePrevClick}
+          disabled={currentPage === 1}
+          type="button"
+          className="btnPrev"
+        >
+          <FaCaretLeft />
+        </button>
+        <div className="cars-list">
+          {
+displayedCars.length > 0 ? displayedCars.map((car) => (
+  <Car
+    key={car.id}
+    car={car}
+    onClick={() => handleClick(car)}
+    onKeyDown={() => handleClick()}
+    showButton={showButton}
+  />
+)) : <p>No cars available.</p>
+}
+        </div>
+        <button
+          onClick={handleNextClick}
+          disabled={currentPage === totalPages}
+          type="button"
+          className="btnNext"
+        >
+          <FaCaretRight />
+        </button>
+      </div>
+    </div>
   );
 };
 
