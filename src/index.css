@@ -33,12 +33,38 @@
   margin-bottom: 10px;
 }
 
+.reservations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .car-details-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
   height: 100vh;
+}
+
+.reservations-container .car-details-container {
+  height: 100%;
+}
+
+.res-card h1 {
+  text-align: center;
+  margin: 45px;
+}
+
+.card {
+  width: 18rem;
+  margin: 20px;
+  height: 56%;
+}
+
+.card img {
+  height: 10rem;
 }
 
 .car-details-info {

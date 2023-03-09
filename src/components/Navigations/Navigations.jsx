@@ -74,7 +74,7 @@ const Navigation = () => {
           <Nav.Link href="/reserve-car">RESERVE CAR</Nav.Link>
           <Nav.Link href="/add-car">ADD CAR</Nav.Link>
           <Nav.Link href="/delete-car">DELETE CAR</Nav.Link>
-          <Nav.Link href="#4">MY RESERVATIONS</Nav.Link>
+          <Nav.Link href="/my-reservations">MY RESERVATIONS</Nav.Link>
         </div>
         <div className="nav_socials_container">
           <Button
