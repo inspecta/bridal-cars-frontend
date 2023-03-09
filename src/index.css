@@ -32,12 +32,22 @@
   border-top: 2px dotted rgb(153, 153, 153);
 }
 
+.reservations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .car-details-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
   height: 100vh;
+}
+
+.reservations-container .car-details-container {
+  height: 100%;
 }
 
 .car-details-info {

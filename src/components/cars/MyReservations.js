@@ -5,16 +5,12 @@ import ReservationCard from './ReservationCard';
 
 const MyReservations = () => {
   const getAllReservations = useSelector((state) => state.reservations.reservations);
-  console.log(getAllReservations);
-  // console.log(getAllReservations.cars);
-  // const res = getAllReservations.cars;
-  // console.log(res.length);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllReservations());
   }, [dispatch]);
   return (
-    <div>
+    <div className="reservations-container">
       {
         getAllReservations.length > 0 ? getAllReservations.map((r) => (
           <ReservationCard
