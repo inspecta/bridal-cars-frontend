@@ -30,6 +30,7 @@
 .dotten-line {
   width: 100px;
   border-top: 2px dotted rgb(153, 153, 153);
+  margin-bottom: 10px;
 }
 
 .car-details-container {
@@ -44,7 +45,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .car-details-more-info {
@@ -66,12 +67,26 @@
 .car-component-info > p {
   color: #828282;
   margin-bottom: 3em;
+  width: 15rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.8em;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  padding: 10px;
 }
 
 tr > td:first-child {
@@ -278,6 +293,7 @@ button {
 @media only screen and (min-width: 768px) {
   .cars-container {
     height: auto;
+    width: 100%;
   }
 
   .car-details-container {
@@ -297,6 +313,7 @@ button {
 
   .car-details-info {
     padding: 20px;
+    align-items: flex-end;
   }
 
   .car-details-info > h2 {

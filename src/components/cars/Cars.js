@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
 
@@ -102,7 +104,24 @@ const Cars = ({ showButton }) => {
                   showButton={showButton}
                 />
               ))
-              : <p>No cars available.</p>
+              : (
+                <div style={{
+                  width: '100%',
+                  height: '50vh',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                >
+                  <ClipLoader
+                    color="#96bf11"
+                    loading
+                    size={100}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />
+                </div>
+              )
           }
         </div>
         <button
