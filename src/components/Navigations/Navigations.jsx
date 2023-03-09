@@ -1,8 +1,5 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable jsx-quotes */
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Nav from 'react-bootstrap/Nav';
 import {
@@ -23,14 +20,15 @@ const Navigation = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignOut = () => {
     const user = JSON.parse(localStorage.getItem('user')).token;
     dispatch(logoutUser(user)).then((result) => {
       if (
-        result.payload !== undefined &&
-        Object.keys(result.payload).length > 0 &&
-        result.payload.status === 200
+        result.payload !== undefined
+        && Object.keys(result.payload).length > 0
+        && result.payload.status === 200
       ) {
         navigate('/');
         localStorage.removeItem('user');
@@ -67,14 +65,45 @@ const Navigation = () => {
           </button>
         )}
         <h3 className="nav_logo">
-          Bridal Car <br /> Rental
+          Bridal Car
+          {' '}
+          <br />
+          {' '}
+          Rental
         </h3>
         <div className="nav_links">
-          <Nav.Link href="/cars">LIST ALL CARS</Nav.Link>
-          <Nav.Link href="/reserve-car">RESERVE CAR</Nav.Link>
-          <Nav.Link href="/add-car">ADD CAR</Nav.Link>
-          <Nav.Link href="/delete-car">DELETE CAR</Nav.Link>
-          <Nav.Link href="#4">LIST ALL RESERVATIONS</Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/cars"
+            className={location.pathname === '/cars' && 'active'}
+            onClick={() => setSideNav(false)}
+          >
+            CARS
+          </Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/reserve-car"
+            onClick={() => setSideNav(false)}
+          >
+            RESERVE CAR
+          </Nav.Link>
+          <Nav.Link as={Link} to="/add-car" onClick={() => setSideNav(false)}>
+            ADD CAR
+          </Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/delete-car"
+            onClick={() => setSideNav(false)}
+          >
+            DELETE CAR
+          </Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/my-reservations"
+            onClick={() => setSideNav(false)}
+          >
+            MY RESERVATIONS
+          </Nav.Link>
         </div>
         <div className="nav_socials_container">
           <Button

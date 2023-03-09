@@ -30,6 +30,14 @@
 .dotten-line {
   width: 100px;
   border-top: 2px dotted rgb(153, 153, 153);
+  margin-bottom: 10px;
+}
+
+.reservations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .car-details-container {
@@ -40,11 +48,39 @@
   height: 100vh;
 }
 
+.reservations-container .car-details-container {
+  height: 100%;
+}
+
+.res-card {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.res-card h1 {
+  text-align: center;
+  margin: 45px;
+}
+
+.card {
+  width: 18rem;
+  margin: 20px;
+  height: 56%;
+}
+
+.card img {
+  height: 10rem;
+}
+
 .car-details-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .car-details-more-info {
@@ -66,12 +102,26 @@
 .car-component-info > p {
   color: #828282;
   margin-bottom: 3em;
+  width: 15rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.8em;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  padding: 10px;
 }
 
 tr > td:first-child {
@@ -90,7 +140,7 @@ tr:nth-child(even) {
 .cars-list {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: scroll;
+  overflow-x: hidden;
   width: 80vw;
 }
 
@@ -286,7 +336,12 @@ button {
 /* Responsiveness */
 @media only screen and (min-width: 768px) {
   .cars-container {
-    height: auto;
+    height: 90vh;
+    width: 100%;
+  }
+
+  .car-list-wrapper {
+    width: 80vw;
   }
 
   .car-details-container {
@@ -306,6 +361,7 @@ button {
 
   .car-details-info {
     padding: 20px;
+    align-items: flex-end;
   }
 
   .car-details-info > h2 {

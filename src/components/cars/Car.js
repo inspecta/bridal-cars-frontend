@@ -40,7 +40,9 @@ const Car = ({ car, onClick, showButton }) => {
           backgroundImage: `url(${car.photo})`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundSize: 'contain',
+          backgroundSize: '90%',
+          marginBottom: '1em',
+          marginTop: '1em',
         }}
       />
       <div className="car-component-info">
@@ -48,11 +50,11 @@ const Car = ({ car, onClick, showButton }) => {
         <div className="dotten-line" />
         <p>{car.description}</p>
         {showButton
-      && (
-      <div className="delete-button-container">
-        <Button variant="danger" className="button delete-button" type="button" onClick={() => removeCarFromStore(car.id)}>Delete</Button>
-      </div>
-      )}
+          && (
+            <div className="delete-button-container">
+              <Button variant="danger" className="button delete-button" type="button" onClick={() => removeCarFromStore(car.id)}>Delete</Button>
+            </div>
+          )}
         {showButton ? (<></>) : (
           <div className="social-icons">
             <span><FaFacebookF /></span>

@@ -6,8 +6,7 @@ const CarDetails = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();
-  const selectedCar = state.cars;
-  // const user = localStorage.getItem('user');
+  const selectedCar = state?.cars;
 
   if (!selectedCar) {
     return <div>Car not found.</div>;
@@ -17,31 +16,20 @@ const CarDetails = () => {
     navigate('/cars');
   };
 
-  // const handleReserve = () => {
-  //   navigate('/reserve-car');
-  // };
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' });
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
-
   return (
     <div className="car-details-container">
       <div className="car-details">
         <div className="car-details-photo">
           <img
             src={selectedCar.photo}
-            style={{ width: '100%' }}
+            style={{ width: '100%', height: '60%' }}
             alt="Bridal car"
           />
         </div>
         <div className="car-details-info">
           <h2>{selectedCar.name}</h2>
           <div className="car-details-more-info">
-            <p style={{ fontWeight: 'bold', textAlign: 'justify' }}>{selectedCar.description}</p>
+            <p style={{ fontWeight: '400' }}>{selectedCar.description}</p>
             <table style={{ width: '100%', paddingTop: '1em' }}>
               <tbody>
                 <tr>
@@ -62,10 +50,6 @@ const CarDetails = () => {
                       ? <td>Reserved</td>
                       : <td>Available</td>
                   }
-                </tr>
-                <tr>
-                  <td>Date:</td>
-                  <td>{formatDate(selectedCar.created_at)}</td>
                 </tr>
               </tbody>
             </table>
