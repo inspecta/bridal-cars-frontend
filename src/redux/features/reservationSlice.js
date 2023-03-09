@@ -6,7 +6,6 @@ const url = 'http://localhost:3000/api/v1/reservations';
 export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
   const response = await axios.post(url, car);
   if (response.status === 200 && response.statusText === 'OK') {
-    console.log(response.data);
     return response.data;
   }
   return null;
@@ -14,7 +13,6 @@ export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
 
 export const fetchAllReservations = createAsyncThunk(types.FETCH_RESERVATIONS, async () => {
   const response = await axios.get(url);
-  console.log(response.data);
   return response.data;
 });
 

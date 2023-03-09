@@ -34,7 +34,8 @@
 
 .reservations-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
@@ -48,6 +49,21 @@
 
 .reservations-container .car-details-container {
   height: 100%;
+}
+
+.res-card h1 {
+  text-align: center;
+  margin: 45px;
+}
+
+.card {
+  width: 18rem;
+  margin: 20px;
+  height: 56%;
+}
+
+.card img {
+  height: 10rem;
 }
 
 .car-details-info {

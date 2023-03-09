@@ -10,8 +10,10 @@ const MyReservations = () => {
     dispatch(fetchAllReservations());
   }, [dispatch]);
   return (
-    <div className="reservations-container">
-      {
+    <div className="res-card">
+      <h1 className="cars-container-header">YOUR RESERVATIONS</h1>
+      <div className="reservations-container">
+        {
         getAllReservations.length > 0 ? getAllReservations.map((r) => (
           <ReservationCard
             key={r.id}
@@ -22,7 +24,9 @@ const MyReservations = () => {
           />
         )) : <p>No cars reserved.</p>
       }
+      </div>
     </div>
+
   );
 };
 

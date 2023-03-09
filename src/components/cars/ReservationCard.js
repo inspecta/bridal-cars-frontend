@@ -1,53 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const ReservationCard = ({
   car, reservationDate, city, duration,
 }) => (
-  <div className="car-details-container">
-    <div className="car-details">
-      <div className="car-details-photo">
-        <img
-          src={car.photo}
-          style={{ width: '100%' }}
-          alt="Bridal car"
-        />
-      </div>
-      <div className="car-details-info">
-        <h2>{car.name}</h2>
-        <div className="car-details-more-info">
-          <p style={{ fontWeight: 'bold', textAlign: 'justify' }}>{car.description}</p>
-          <table style={{ width: '100%', paddingTop: '1em' }}>
-            <tbody>
-              <tr>
-                <td>Price:</td>
-                <td>
-                  $
-                  {car.price}
-                </td>
-              </tr>
-              <tr>
-                <td>Model:</td>
-                <td>{car.model}</td>
-              </tr>
-              <tr>
-                <td>Reservation Date:</td>
-                <td>{reservationDate}</td>
-              </tr>
-              <tr>
-                <td>City:</td>
-                <td>{city}</td>
-              </tr>
-              <tr>
-                <td>Duration:</td>
-                <td>{duration}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Card style={{ width: '18rem' }}>
+    <Card.Img variant="top" src={car.photo} />
+    <Card.Body>
+      <Card.Title>{car.name}</Card.Title>
+      <Card.Text>
+        {car.description}
+      </Card.Text>
+    </Card.Body>
+    <ListGroup className="list-group-flush">
+      <ListGroup.Item>
+        Price:
+        {car.price}
+      </ListGroup.Item>
+      <ListGroup.Item>
+        City:
+        {city}
+      </ListGroup.Item>
+      <ListGroup.Item>
+        Duration(hrs):
+        {duration}
+      </ListGroup.Item>
+      <ListGroup.Item>
+        Reservation Date:
+        {reservationDate}
+      </ListGroup.Item>
+    </ListGroup>
+  </Card>
 );
 
 ReservationCard.propTypes = {
