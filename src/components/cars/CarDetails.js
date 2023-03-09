@@ -16,21 +16,13 @@ const CarDetails = () => {
     navigate('/cars');
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' });
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
-
   return (
     <div className="car-details-container">
       <div className="car-details">
         <div className="car-details-photo">
           <img
             src={selectedCar.photo}
-            style={{ width: '100%' }}
+            style={{ width: '100%', height: '60%' }}
             alt="Bridal car"
           />
         </div>
@@ -58,10 +50,6 @@ const CarDetails = () => {
                       ? <td>Reserved</td>
                       : <td>Available</td>
                   }
-                </tr>
-                <tr>
-                  <td>Date:</td>
-                  <td>{formatDate(selectedCar.created_at)}</td>
                 </tr>
               </tbody>
             </table>
