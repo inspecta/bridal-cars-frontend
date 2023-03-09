@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { reserveCar } from '../../redux/features/reservationSlice';
 import { updateCar } from '../../redux/features/carSlice';
@@ -8,7 +8,7 @@ const Reservation = () => {
   const { state } = useLocation();
   const { car } = state;
   const user = JSON.parse(localStorage.getItem('user'));
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user_id: user.id,
     car_id: car.id,
@@ -18,7 +18,6 @@ const Reservation = () => {
   });
 
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
   const createReservation = (reserved) => {
     dispatch(reserveCar(formData)).then((result) => {
       if (
@@ -35,7 +34,7 @@ const Reservation = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    e.target.reset();
+    navigate('/my-reservations');
   };
 
   return (
@@ -50,7 +49,6 @@ const Reservation = () => {
             placeholder="Enter User Name"
             value={user.username}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">
@@ -61,7 +59,6 @@ const Reservation = () => {
             placeholder="Enter name"
             value={car.name}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">
@@ -72,7 +69,6 @@ const Reservation = () => {
             placeholder="Price per hour"
             value={car.price}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import types from '../types';
 
-const url = 'http://localhost:3000/api/v1/reservations';
+const url = 'http://127.0.0.1:3000/api/v1/reservations';
 export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
   const response = await axios.post(url, car);
   if (response.status === 200 && response.statusText === 'OK') {
@@ -11,24 +11,32 @@ export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
   return null;
 });
 
-export const fetchAllReservations = createAsyncThunk(types.FETCH_RESERVATIONS, async () => {
-  const response = await axios.get(url);
-  return response.data;
-});
+export const fetchAllReservations = createAsyncThunk(
+  types.FETCH_RESERVATIONS,
+  async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const response = await axios.get(url, {
+      params: {
+        user_id: user.id,
+      },
+    });
+    return response.data;
+  },
+);
 
 const initialState = {
-  cars: [],
+  reservations: [],
   error: null,
   status: 'idle',
 };
 
 // Slice
 const reservationSlice = createSlice({
-  name: 'cars',
+  name: 'reservations',
   initialState,
   reducers: {
-    cars(state, action) {
-      state.cars = action.payload;
+    reservations(state, action) {
+      state.reservations = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -38,7 +46,7 @@ const reservationSlice = createSlice({
       })
       .addCase(fetchAllReservations.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.cars = action.payload;
+        state.reservations = action.payload;
       })
       .addCase(fetchAllReservations.rejected, (state, action) => {
         state.status = 'rejected';

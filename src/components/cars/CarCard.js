@@ -80,6 +80,7 @@ const CarCard = ({ showButton, showHeader }) => {
       {showHeader ? (
         <div>
           <h1 className="cars-container-header">RESERVE YOUR BRIDAL CAR</h1>
+          <p className="cars-container-subheader">Choose your bridal car</p>
         </div>
       ) : (
         <div>
