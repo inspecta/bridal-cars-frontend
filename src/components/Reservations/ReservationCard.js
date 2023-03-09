@@ -16,7 +16,7 @@ const ReservationCard = ({
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>
-        Price:
+        Price: $
         {car.price}
       </ListGroup.Item>
       <ListGroup.Item>

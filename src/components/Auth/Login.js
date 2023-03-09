@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -40,8 +39,8 @@ const Login = () => {
       };
       dispatch(fetchUser(userData)).then((result) => {
         if (
-          result.payload !== undefined &&
-          Object.keys(result.payload).length > 0
+          result.payload !== undefined
+          && Object.keys(result.payload).length > 0
         ) {
           navigate('/cars');
         } else {

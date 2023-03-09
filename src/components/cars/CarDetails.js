@@ -7,7 +7,7 @@ const CarDetails = () => {
 
   const { state } = useLocation();
   const selectedCar = state?.cars;
-  // const user = localStorage.getItem('user');
+
   if (!selectedCar) {
     return <div>Car not found.</div>;
   }
@@ -16,9 +16,6 @@ const CarDetails = () => {
     navigate('/cars');
   };
 
-  // const handleReserve = () => {
-  //   navigate('/reserve-car');
-  // };
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = date.getDate();
