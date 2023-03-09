@@ -114,6 +114,7 @@
   font-size: small;
 }
 
+.nav-link:focus,
 .active {
   background-color: #97bf0f;
   color: #fff !important;
