@@ -3,7 +3,7 @@ import AddCarButton from './AddCarButton';
 import CarCard from './CarCard';
 
 const Cars = () => (
-  <div>
+  <div className="cars_container">
     <CarCard />
     <AddCarButton />
   </div>

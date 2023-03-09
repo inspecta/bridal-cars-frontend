@@ -24,7 +24,7 @@ function App() {
 
   const location = useLocation();
   return (
-    <div className="d-flex">
+    <div className="home_container">
       {location.pathname !== '/' &&
         location.pathname !== '/signup' &&
         location.pathname !== '/login' && <Navigation />}

@@ -140,7 +140,7 @@ tr:nth-child(even) {
 .cars-list {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: scroll;
+  overflow-x: hidden;
   width: 80vw;
 }
 
@@ -306,16 +306,17 @@ button {
   height: 100px;
   border-radius: 50%;
   position: relative;
-  background: linear-gradient(
-    to right,
-    red,
-    orange,
-    yellow,
-    green,
-    blue,
-    indigo,
-    violet
-  );
+  background:
+    linear-gradient(
+      to right,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    );
   margin: 0 auto 1em auto;
 }
 
@@ -335,8 +336,12 @@ button {
 /* Responsiveness */
 @media only screen and (min-width: 768px) {
   .cars-container {
-    height: 80vh;
+    height: 90vh;
     width: 100%;
+  }
+
+  .car-list-wrapper {
+    width: 80vw;
   }
 
   .car-details-container {
