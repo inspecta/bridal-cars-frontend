@@ -15,9 +15,9 @@ import AlertComponent from './components/Alert/Alert';
 import DeleteCar from './components/cars/DeleteCar';
 import './App.css';
 import './fonts/vespa.ttf';
-import Reservation from './components/cars/Reservation';
-import ReserveHome from './components/cars/ReserveHome';
-import MyReservations from './components/cars/MyReservations';
+import Reservation from './components/Reservations/Reservation';
+import ReserveHome from './components/Reservations/ReserveHome';
+import MyReservations from './components/Reservations/MyReservations';
 
 function App() {
   const alert = useSelector((state) => state.alert);

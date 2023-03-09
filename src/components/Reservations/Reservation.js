@@ -18,7 +18,6 @@ const Reservation = () => {
   });
 
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
   const createReservation = (reserved) => {
     dispatch(reserveCar(formData)).then((result) => {
       if (
@@ -50,7 +49,6 @@ const Reservation = () => {
             placeholder="Enter User Name"
             value={user.username}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">
@@ -61,7 +59,6 @@ const Reservation = () => {
             placeholder="Enter name"
             value={car.name}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">
@@ -72,7 +69,6 @@ const Reservation = () => {
             placeholder="Price per hour"
             value={car.price}
             readOnly
-            // onChange={handleInput}
           />
         </div>
         <div className="add_car_field">
