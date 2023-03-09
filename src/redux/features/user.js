@@ -8,6 +8,7 @@ export const fetchUser = createAsyncThunk(
   types.SET_FETCHED_USER,
   async (userData) => {
     const user = await axios.post(`${baseApi}/users/sign_in`, userData);
+    console.log(userData);
     const userDetails = {
       id: user.data.status.data.id,
       username: user.data.status.data.username,

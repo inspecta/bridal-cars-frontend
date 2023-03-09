@@ -6,6 +6,7 @@ const url = 'http://localhost:3000/api/v1/reservations';
 export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
   const response = await axios.post(url, car);
   if (response.status === 200 && response.statusText === 'OK') {
+    console.log(response.data);
     return response.data;
   }
   return null;
@@ -13,22 +14,23 @@ export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
 
 export const fetchAllReservations = createAsyncThunk(types.FETCH_RESERVATIONS, async () => {
   const response = await axios.get(url);
+  console.log(response.data);
   return response.data;
 });
 
 const initialState = {
-  cars: [],
+  reservations: [],
   error: null,
   status: 'idle',
 };
 
 // Slice
 const reservationSlice = createSlice({
-  name: 'cars',
+  name: 'reservations',
   initialState,
   reducers: {
-    cars(state, action) {
-      state.cars = action.payload;
+    reservations(state, action) {
+      state.reservations = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -38,7 +40,7 @@ const reservationSlice = createSlice({
       })
       .addCase(fetchAllReservations.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.cars = action.payload;
+        state.reservations = action.payload;
       })
       .addCase(fetchAllReservations.rejected, (state, action) => {
         state.status = 'rejected';
