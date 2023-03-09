@@ -71,7 +71,7 @@ const Navigation = () => {
         </h3>
         <div className="nav_links">
           <Nav.Link href="/cars">CARS</Nav.Link>
-          <Nav.Link href="#1">RESERVE CAR</Nav.Link>
+          <Nav.Link href="/reserve-car">RESERVE CAR</Nav.Link>
           <Nav.Link href="/add-car">ADD CAR</Nav.Link>
           <Nav.Link href="/delete-car">DELETE CAR</Nav.Link>
           <Nav.Link href="#4">MY RESERVATIONS</Nav.Link>

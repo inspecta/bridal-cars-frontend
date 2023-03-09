@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import ClipLoader from 'react-spinners/ClipLoader';
-
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
-import AddCarButton from './AddCarButton';
-import CarCard from './CarCard';
 
-const Cars = () => (
-  <div>
-    <CarCard />
-    <AddCarButton />
-  </div>
-);
-
+const CarCard = ({ showButton, showHeader }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const getAllCars = useSelector((state) => state.cars);
+  const message = location.state?.message;
+  const user = JSON.parse(localStorage.getItem('user'));
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [displayedCars, setDisplayedCars] = useState([]);
   const [carsPerPage, setCarsPerPage] = useState(1);
-
   useEffect(() => {
     dispatch(fetchAllCars());
   }, [dispatch]);
@@ -58,13 +53,16 @@ const Cars = () => (
   }, []);
 
   const handleClick = (carObject) => {
-    navigate('/car-details', {
-      state: {
-        cars: carObject,
+    navigate(
+      '/car-details',
+      {
+        state: {
+          cars: carObject,
+          user,
+        },
       },
-    });
+    );
   };
-
   const handlePrevClick = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -79,8 +77,16 @@ const Cars = () => (
 
   return (
     <div className="cars-container">
-      <h1 className="cars-container-header">LATEST BRIDAL CARS</h1>
-      <p className="cars-container-subheader">Choose your bridal car today!</p>
+      {showHeader ? (
+        <div>
+          <h1 className="cars-container-header">RESERVE YOUR BRIDAL CAR</h1>
+        </div>
+      ) : (
+        <div>
+          <h1 className="cars-container-header">LATEST BRIDAL CARS</h1>
+          <p className="cars-container-subheader">Choose your bridal car today!</p>
+        </div>
+      ) }
       <div className="dotten-line" />
       <div>
         {message && <p>{message}</p>}
@@ -96,35 +102,16 @@ const Cars = () => (
         </button>
         <div className="cars-list">
           {
-            displayedCars.length > 0
-              ? displayedCars.map((car) => (
-                <Car
-                  key={car.id}
-                  car={car}
-                  onClick={() => handleClick(car)}
-                  onKeyDown={() => handleClick()}
-                  showButton={showButton}
-                />
-              ))
-              : (
-                <div style={{
-                  width: '100%',
-                  height: '50vh',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                >
-                  <ClipLoader
-                    color="#96bf11"
-                    loading
-                    size={100}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                  />
-                </div>
-              )
-          }
+displayedCars.length > 0 ? displayedCars.map((car) => (
+  <Car
+    key={car.id}
+    car={car}
+    onClick={() => handleClick(car)}
+    onKeyDown={() => handleClick()}
+    showButton={showButton}
+  />
+)) : <p>No cars available.</p>
+}
         </div>
         <button
           onClick={handleNextClick}
@@ -135,17 +122,12 @@ const Cars = () => (
           <FaCaretRight />
         </button>
       </div>
-      {!showButton && (
-        <div className="add-car-btn">
-          <Link to="/add-car">Add Car</Link>
-        </div>
-      )}
     </div>
   );
 };
 
-Cars.propTypes = {
+CarCard.propTypes = {
   showButton: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
 };
-
-export default Cars;
+export default CarCard;

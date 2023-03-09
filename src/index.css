@@ -131,6 +131,15 @@ button {
   align-items: center;
 }
 
+.delete-button-container {
+  margin: 0 5px 10px;
+}
+
+.delete-button {
+  width: 40px;
+  height: 40px;
+}
+
 .btnPrev,
 .btnNext {
   border: none;
@@ -325,6 +334,11 @@ button {
 
   .car-details-more-info > p {
     font-size: 1em;
+  }
+
+  .delete-button {
+    width: 70px !important;
+    height: 40px !important;
   }
 
   .circle {
