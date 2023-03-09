@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import types from '../types';
 
-const url = 'http://127.0.0.1:3000/api/v1/reservations';
+const url = 'https://bridal-cars.onrender.com/api/v1/reservations';
 export const reserveCar = createAsyncThunk(types.RESERVE_CAR, async (car) => {
   const response = await axios.post(url, car);
   if (response.status === 200 && response.statusText === 'OK') {

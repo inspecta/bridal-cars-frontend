@@ -8,7 +8,7 @@ const salt = '$2a$10$CwTycUXWue0Thq9StjUM0u';
 const Signup = () => {
   const navigate = useNavigate();
 
-  const url = 'http://localhost:3000/users';
+  const url = 'https://bridal-cars.onrender.com/users';
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

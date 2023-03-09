@@ -22,7 +22,7 @@ const Reservation = () => {
     dispatch(reserveCar(formData)).then((result) => {
       if (
         result.payload !== undefined
-          && Object.keys(result.payload).length > 0
+        && Object.keys(result.payload).length > 0
       ) {
         dispatch(updateCar({ id: car.id, reserved }));
       }
@@ -34,7 +34,13 @@ const Reservation = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/my-reservations');
+    navigate('/my-reservations', {
+      state: { message: 'Car reserved successfully!' },
+    });
+
+    setTimeout(() => {
+      navigate('/cars');
+    }, 3000);
   };
 
   return (

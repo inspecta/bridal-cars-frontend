@@ -33,6 +33,34 @@
   margin-bottom: 10px;
 }
 
+.success-msg {
+  background-color: #96bf11;
+  border-radius: 5px;
+  width: 50%;
+  color: #000;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeOut 2s ease both;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.success-msg > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
 .reservations-container {
   display: flex;
   flex-wrap: wrap;
@@ -306,17 +334,16 @@ button {
   height: 100px;
   border-radius: 50%;
   position: relative;
-  background:
-    linear-gradient(
-      to right,
-      red,
-      orange,
-      yellow,
-      green,
-      blue,
-      indigo,
-      violet
-    );
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
   margin: 0 auto 1em auto;
 }
 

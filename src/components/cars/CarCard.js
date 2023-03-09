@@ -87,11 +87,11 @@ const CarCard = ({ showButton, showHeader }) => {
           <h1 className="cars-container-header">LATEST BRIDAL CARS</h1>
           <p className="cars-container-subheader">Choose your bridal car today!</p>
         </div>
-      ) }
+      )}
       <div className="dotten-line" />
-      <div>
-        {message && <p>{message}</p>}
-      </div>
+
+      {message && <div className="success-msg"><p>{message}</p></div>}
+
       <div className="car-list-wrapper">
         <button
           onClick={handlePrevClick}
@@ -103,16 +103,16 @@ const CarCard = ({ showButton, showHeader }) => {
         </button>
         <div className="cars-list">
           {
-displayedCars.length > 0 ? displayedCars.map((car) => (
-  <Car
-    key={car.id}
-    car={car}
-    onClick={() => handleClick(car)}
-    onKeyDown={() => handleClick()}
-    showButton={showButton}
-  />
-)) : <p>No cars available.</p>
-}
+            displayedCars.length > 0 ? displayedCars.map((car) => (
+              <Car
+                key={car.id}
+                car={car}
+                onClick={() => handleClick(car)}
+                onKeyDown={() => handleClick()}
+                showButton={showButton}
+              />
+            )) : <p>No cars available.</p>
+          }
         </div>
         <button
           onClick={handleNextClick}
@@ -128,7 +128,13 @@ displayedCars.length > 0 ? displayedCars.map((car) => (
 };
 
 CarCard.propTypes = {
-  showButton: PropTypes.bool.isRequired,
-  showHeader: PropTypes.bool.isRequired,
+  showButton: PropTypes.bool,
+  showHeader: PropTypes.bool,
 };
+
+CarCard.defaultProps = {
+  showButton: false,
+  showHeader: false,
+};
+
 export default CarCard;

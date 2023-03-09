@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import types from '../types';
 
-const baseApi = 'http://127.0.0.1:3000';
+const baseApi = 'https://bridal-cars.onrender.com/';
 
 export const fetchUser = createAsyncThunk(
   types.SET_FETCHED_USER,

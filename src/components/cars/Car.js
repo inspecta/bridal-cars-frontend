@@ -12,7 +12,13 @@ const Car = ({ car, onClick, showButton }) => {
   const removeCarFromStore = (id) => {
     dispatch(deleteCar(id)).then((resp) => {
       if (resp.payload !== undefined) {
-        navigate('/cars');
+        navigate('/cars', {
+          state: { message: 'Car deleted successfully!' },
+        });
+
+        setTimeout(() => {
+          navigate('/cars');
+        }, 3000);
       }
     });
   };
@@ -68,7 +74,7 @@ const Car = ({ car, onClick, showButton }) => {
 };
 
 Car.propTypes = {
-  car: PropTypes.objectOf.isRequired,
+  car: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   showButton: PropTypes.bool.isRequired,
 };

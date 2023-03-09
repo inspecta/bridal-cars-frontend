@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import types from '../types';
 
-const url = 'http://localhost:3000/api/v1/cars';
+const url = 'https://bridal-cars.onrender.com/api/v1/cars';
 
 export const fetchAllCars = createAsyncThunk(types.FETCH_CARS, async () => {
   const response = await axios.get(url);
