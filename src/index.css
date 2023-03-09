@@ -47,6 +47,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
     transform: translateY(-10px);
@@ -334,16 +335,17 @@ button {
   height: 100px;
   border-radius: 50%;
   position: relative;
-  background: linear-gradient(
-    to right,
-    red,
-    orange,
-    yellow,
-    green,
-    blue,
-    indigo,
-    violet
-  );
+  background:
+    linear-gradient(
+      to right,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    );
   margin: 0 auto 1em auto;
 }
 
