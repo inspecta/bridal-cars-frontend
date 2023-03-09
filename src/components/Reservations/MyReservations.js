@@ -28,7 +28,9 @@ const MyReservations = () => {
             />
           ))
         ) : (
-          <p>No cars reserved.</p>
+          <p style={{ backgroundColor: '#d2d2d2', padding: '5px 30px' }}>
+            No cars reserved.
+          </p>
         )}
       </div>
     </div>
