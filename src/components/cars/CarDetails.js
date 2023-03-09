@@ -6,7 +6,7 @@ const CarDetails = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();
-  const selectedCar = state.cars;
+  const selectedCar = state?.cars;
 
   if (!selectedCar) {
     return <div>Car not found.</div>;
