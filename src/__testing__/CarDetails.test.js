@@ -1,24 +1,23 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import CarDetails from "../components/cars/CarDetails";
-import { Provider } from "react-redux";
+import React from 'react';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import CarDetails from '../components/cars/CarDetails';
 
-describe("CarDetails", () => {
+describe('CarDetails', () => {
   const selectedCar = {
-    name: "Mercedes",
-    photo: "mercedes_photo.jpg",
-    description: "A very comfortable car",
+    name: 'Mercedes',
+    photo: 'mercedes_photo.jpg',
+    description: 'A very comfortable car',
     price: 12,
-    model: "W-14",
+    model: 'W-14',
     reserved: false,
     created_at: '09/03/2022',
   };
 
-  it("renders the car details component", () => {
+  it('renders the car details component', () => {
     const location = {
       state: {
-        cars: selectedCar
+        cars: selectedCar,
       },
     };
 
@@ -29,5 +28,5 @@ describe("CarDetails", () => {
     );
 
     expect(asFragment).toMatchSnapshot();
-  })
-})
+  });
+});
