@@ -4,29 +4,34 @@ import { fetchAllReservations } from '../../redux/features/reservationSlice';
 import ReservationCard from './ReservationCard';
 
 const MyReservations = () => {
-  const getAllReservations = useSelector((state) => state.reservations.reservations);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllReservations());
   }, [dispatch]);
+
+  const getAllReservations = useSelector(
+    (state) => state.reservations.reservations,
+  );
+
   return (
     <div className="res-card">
       <h1 className="cars-container-header">YOUR RESERVATIONS</h1>
       <div className="reservations-container">
-        {
-        getAllReservations.length > 0 ? getAllReservations.map((r) => (
-          <ReservationCard
-            key={r.id}
-            car={r.car}
-            reservationDate={r.reservation_date}
-            city={r.city}
-            duration={r.duration}
-          />
-        )) : <p>No cars reserved.</p>
-      }
+        {getAllReservations.length > 0 ? (
+          getAllReservations.map((r) => (
+            <ReservationCard
+              key={r.id}
+              car={r.car}
+              reservationDate={r.reservation_date}
+              city={r.city}
+              duration={r.duration}
+            />
+          ))
+        ) : (
+          <p>No cars reserved.</p>
+        )}
       </div>
     </div>
-
   );
 };
 
