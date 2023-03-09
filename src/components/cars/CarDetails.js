@@ -6,9 +6,8 @@ const CarDetails = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();
-  const selectedCar = state.cars;
+  const selectedCar = state?.cars;
   // const user = localStorage.getItem('user');
-
   if (!selectedCar) {
     return <div>Car not found.</div>;
   }
@@ -41,7 +40,7 @@ const CarDetails = () => {
         <div className="car-details-info">
           <h2>{selectedCar.name}</h2>
           <div className="car-details-more-info">
-            <p style={{ fontWeight: 'bold', textAlign: 'justify' }}>{selectedCar.description}</p>
+            <p style={{ fontWeight: '400' }}>{selectedCar.description}</p>
             <table style={{ width: '100%', paddingTop: '1em' }}>
               <tbody>
                 <tr>

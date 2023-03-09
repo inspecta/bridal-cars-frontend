@@ -70,11 +70,11 @@ const Navigation = () => {
           Bridal Car <br /> Rental
         </h3>
         <div className="nav_links">
-          <Nav.Link href="/cars">LIST ALL CARS</Nav.Link>
+          <Nav.Link href="/cars">CARS</Nav.Link>
           <Nav.Link href="/reserve-car">RESERVE CAR</Nav.Link>
           <Nav.Link href="/add-car">ADD CAR</Nav.Link>
           <Nav.Link href="/delete-car">DELETE CAR</Nav.Link>
-          <Nav.Link href="/my-reservations">LIST ALL RESERVATIONS</Nav.Link>
+          <Nav.Link href="/my-reservations">MY RESERVATIONS</Nav.Link>
         </div>
         <div className="nav_socials_container">
           <Button
