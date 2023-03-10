@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import ClipLaoder from 'react-spinners/ClipLoader';
 import { fetchAllCars } from '../../redux/features/carSlice';
 import Car from './Car';
 
@@ -111,7 +112,15 @@ const CarCard = ({ showButton, showHeader }) => {
                 onKeyDown={() => handleClick()}
                 showButton={showButton}
               />
-            )) : <p>No cars available.</p>
+            ))
+              : (
+                <div className="loading">
+                  <ClipLaoder
+                    size={100}
+                    color="#96bf11"
+                  />
+                </div>
+              )
           }
         </div>
         <button
