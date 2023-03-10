@@ -13,6 +13,7 @@ const AddCar = () => {
     price: 0,
     description: '',
   });
+  const [isAddingCar, setIsAddingCar] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const AddCar = () => {
       formData.model.length > 0 &&
       formData.photo.length > 0
     ) {
+      setIsAddingCar(true);
       dispatch(addCar(formData)).then((result) => {
         if (
           result.payload !== undefined &&
@@ -45,7 +47,10 @@ const AddCar = () => {
             }),
           );
         }
-      });
+      })
+        .finally(() => {
+          setIsAddingCar(false);
+        });
     } else {
       dispatch(
         triggerAlert({
@@ -60,6 +65,11 @@ const AddCar = () => {
   return (
     <div className="add_car_container">
       <h1>Add a car</h1>
+      {isAddingCar && (
+        <div className="loader-overlay">
+          <div className="loader-spinner" />
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="add_car_field">
           <p>Name:</p>

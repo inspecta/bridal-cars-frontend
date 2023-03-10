@@ -423,6 +423,7 @@ button {
   .car-details-info {
     padding: 20px;
     align-items: flex-end;
+    flex-basis: 50%;
   }
 
   .car-details-info > h2 {

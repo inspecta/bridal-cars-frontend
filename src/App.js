@@ -19,7 +19,7 @@ import Reservation from './components/Reservations/Reservation';
 import ReserveHome from './components/Reservations/ReserveHome';
 import MyReservations from './components/Reservations/MyReservations';
 
-function App() {
+const App = () => {
   const alert = useSelector((state) => state.alert);
 
   const location = useLocation();
@@ -53,6 +53,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

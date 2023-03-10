@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import Navigation from '../components/Navigations/Navigations';
-import store from '../../src/redux/store'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import Navigation from '../components/Navigations/Navigations';
+import store from '../redux/store';
 import '@testing-library/jest-dom';
 
 describe('Navigation component', () => {
@@ -12,9 +12,8 @@ describe('Navigation component', () => {
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
-      </Provider>
-    )
-      ;
+      </Provider>,
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -24,7 +23,7 @@ describe('Navigation component', () => {
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     const logoutBtn = screen.getByText('LOG OUT');
     expect(logoutBtn).toBeInTheDocument();
@@ -36,7 +35,7 @@ describe('Navigation component', () => {
         <BrowserRouter>
           <Navigation />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     const carsLink = screen.getByText('CARS');
     const reserveCarLink = screen.getByText('RESERVE CAR');

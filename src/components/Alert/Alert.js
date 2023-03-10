@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeAlert } from '../../redux/features/alert';
 
-function AlertComponent({ heading, message, variant }) {
+const AlertComponent = ({ heading, message, variant }) => {
   const [show, setShow] = useState(true);
 
   const dispatch = useDispatch();
@@ -25,7 +25,9 @@ function AlertComponent({ heading, message, variant }) {
       </Alert>
     );
   }
-}
+
+  return null;
+};
 
 AlertComponent.propTypes = {
   heading: PropTypes.string.isRequired,

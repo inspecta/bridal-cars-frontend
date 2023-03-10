@@ -12,6 +12,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [isLoggingin, setIsLoggingin] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,11 +34,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.email.length > 0 && formData.password.length > 0) {
+      setIsLoggingin(true);
       const hashedPassword = bcrypt.hashSync(formData.password, salt);
       const userData = {
         user: { ...formData, password: hashedPassword },
       };
       dispatch(fetchUser(userData)).then((result) => {
+        setIsLoggingin(false);
         if (
           result.payload !== undefined
           && Object.keys(result.payload).length > 0
@@ -62,6 +65,11 @@ const Login = () => {
   return (
     <div className="login_container">
       <h1>Welcome back</h1>
+      {isLoggingin && (
+        <div className="loader-overlay">
+          <div className="loader-spinner" />
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="login_field">
           <p>Email:</p>
