@@ -198,12 +198,15 @@
 
 .btn_2 {
   text-align: center;
+  text-decoration: underline;
 }
 
 .btn_2 > button {
-  background-color: #597301;
+  /* background-color: #597301;
   width: 50%;
-  border: none !important;
+  border: none !important; */
+  background: none;
+  border: 0;
 }
 
 .login_field > button:hover,
@@ -212,7 +215,9 @@
 }
 
 .btn_2 > button:hover {
-  background-color: #415305;
+  /* background-color: #415305; */
+  background: none;
+  color: green;
 }
 
 .add_car_container {

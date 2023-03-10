@@ -1,22 +1,39 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
+import { triggerAlert } from '../../redux/features/alert';
 
 const salt = '$2a$10$CwTycUXWue0Thq9StjUM0u';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const url = 'https://bridal-cars.onrender.com/users';
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Handle user registration
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!username || !email || !password) {
+      dispatch(
+        triggerAlert({
+          heading: 'Error Registering',
+          message: 'Please fill in the form completely!',
+          variant: 'danger',
+        }),
+      );
+    } else {
+      setIsSubmitting(true);
+    }
+
     const hashedPassword = bcrypt.hashSync(password, salt);
     const user = { username, email, password: hashedPassword };
     try {
@@ -35,14 +52,13 @@ const Signup = () => {
         });
       }
     } catch (error) {
-      return error.response.data;
+      // error.response.data;
     }
 
     setEmail('');
     setPassword('');
     setUsername('');
-
-    return true;
+    setIsSubmitting(false);
   };
 
   const redirectToLogin = () => {
@@ -51,6 +67,11 @@ const Signup = () => {
 
   return (
     <div className="login_container">
+      {isSubmitting && (
+        <div className="loader-overlay">
+          <div className="loader-spinner" />
+        </div>
+      )}
       <h1>Register User</h1>
       <form onSubmit={handleSubmit}>
         <div className="login_field">
@@ -89,7 +110,9 @@ const Signup = () => {
           />
         </div>
         <div className="login_field">
-          <button type="submit">Register</button>
+          <button type="submit">
+            Register
+          </button>
         </div>
         <div className="login_field btn_2">
           <button type="button" onClick={() => redirectToLogin()}>Login</button>
