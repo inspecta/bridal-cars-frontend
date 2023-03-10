@@ -78,7 +78,7 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0"
   },
-  "type": "module",
+  "type": "commonjs",
   "jest": {
     "globals": {
       "esm": {
