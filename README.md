@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[your\_project\_name\] ](#-your_project_name-)
+- [📖 \[BRIDAL CARS\] ](#-your_project_name-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -25,9 +25,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Bridal cars ] <a name="about-project"></a>
+# 📖 Bridal cars <a name="about-project"></a>
 
-**[Bridal cars]** is a full stack application that allows users to reserve a bridal car. It uses React in the front end and RoR(Ruby on Rails) as an API. Using this app, users can log in by typing username and password. Once logged in, they are able to see all the available cars, the car details and can reserve a car. 
+**Bridal cars** is a full stack application that allows users to reserve a bridal car. It uses React in the front end and RoR(Ruby on Rails) as an API. Using this app, users can log in by typing username and password. Once logged in, they are able to see all the available cars, the car details and can reserve a car. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,7 +54,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](https://deploy-preview-18--storied-madeleine-8f057b.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,9 +128,9 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] Add user roles
+- [ ] Implement Authorization through JWT
+- [ ] Add more information and photos about cars
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,7 +165,5 @@ We would like to thank the <a href="https://www.behance.net/gallery/26425031/Ves
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
