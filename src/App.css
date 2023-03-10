@@ -1,0 +1,392 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-duplicate-selectors */
+.home_container {
+  display: flex;
+}
+
+.app,
+.login_container,
+.add_car_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 180, 0, 0.5),
+      rgba(255, 180, 0, 0.5)
+    ),
+    url("./images/fiat-homepage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-container h1 {
+  font-family: "Phudu", cursive;
+  letter-spacing: 7px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.login {
+  margin: 25px;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+}
+
+.delete-button {
+  width: 70px !important;
+  height: 40px !important;
+}
+
+.btn-primary {
+  background-color: rgb(152, 193, 15) !important;
+  border-color: rgb(152, 193, 15) !important;
+  border-radius: 50px !important;
+  font-size: 20px !important;
+}
+
+.nav_container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 20vw;
+  position: relative;
+  border-right: 3px solid #f9f9f9;
+  z-index: 1;
+  overflow-x: hidden;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.nav_links {
+  position: absolute;
+  top: 30%;
+  font-weight: bold;
+  padding-left: 1em;
+}
+
+.nav_logo {
+  transform: rotate(-15deg);
+  padding: 2em;
+  font-weight: 900;
+  font-family: "vespa", "Courier New", Courier, monospace;
+}
+
+.nav_links > a {
+  color: #414141;
+}
+
+.nav_socials_container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2em;
+}
+
+.nav_socials_container > .nav_socials > svg {
+  margin: 0.2em;
+  font-size: x-large;
+}
+
+.nav_socials_container > .nav_copyright,
+.nav_socials_container > .nav_copyright > span {
+  padding-left: 1em;
+  font-size: small;
+}
+
+.nav-link:focus,
+.active {
+  background-color: #97bf0f;
+  color: #fff !important;
+}
+
+.hamburger_menu {
+  display: none;
+  border: none;
+  background-color: inherit;
+  font-size: xx-large;
+}
+
+.hamburger_menu > svg {
+  fill: #414141;
+}
+
+.cancel_menu {
+  font-size: xx-large;
+  border: none;
+  background-color: inherit;
+  margin: 0.5em;
+}
+
+.cancel_menu > svg {
+  fill: #f00;
+}
+
+.login_container {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(150, 191, 2, 0.7),
+      rgba(150, 191, 2, 0.7)
+    ),
+    url("./images/bridal-car-login.jpg");
+  color: #fff;
+}
+
+.login_container > *,
+.add_car_container > * {
+  align-self: center;
+}
+
+.login_container > h1,
+.add_car_container > h1 {
+  font-family: "vespa", "Courier New", Courier, monospace;
+}
+
+.login_container > form,
+.add_car_container > form {
+  font-size: large;
+  font-weight: bold;
+}
+
+.login_field > p,
+.add_car_field > p {
+  margin: 1em 0 0 0;
+}
+
+.login_field > input,
+.add_car_field > input {
+  border: none;
+  padding: 0.5em;
+}
+
+.login_field > button,
+.add_car_field > button {
+  margin-top: 1em;
+  font-size: large;
+  font-weight: bold;
+  background-color: #415305;
+  color: #fff;
+  padding: 0.5em;
+  width: 100%;
+  border: 1px solid #fff;
+}
+
+.btn_2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.btn_2 > button {
+  /* background-color: #597301;
+  width: 50%;
+  border: none !important; */
+  background: none;
+  border: 0;
+}
+
+.login_field > button:hover,
+.add_car_field > button:hover {
+  background-color: #97bf0f;
+}
+
+.btn_2 > button:hover {
+  /* background-color: #415305; */
+  background: none;
+  color: green;
+}
+
+.add_car_container {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(150, 191, 2, 0.7),
+      rgba(150, 191, 2, 0.7)
+    ),
+    url("./images/add_car_background.jpeg");
+  color: #fff;
+}
+
+/* Alert */
+.alert_container {
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+  z-index: 2;
+}
+
+.log_out_btn {
+  font-weight: bold;
+  margin-bottom: 2em;
+  font-size: medium;
+}
+
+@media only screen and (max-width: 500px) {
+  .btn-container h1 {
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+
+  .login {
+    margin: 10px;
+  }
+
+  .btn {
+    width: 100px;
+    height: 30px;
+  }
+
+  .delete-button {
+    width: 70px !important;
+    height: 40px !important;
+  }
+
+  .btn-primary {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .nav_container {
+    width: 65vw;
+    display: none !important;
+  }
+
+  .nav_socials_container > .nav_socials > svg {
+    font-size: small;
+  }
+
+  .nav_socials_container > .nav_copyright,
+  .nav_socials_container > .nav_copyright > span {
+    font-size: x-small;
+  }
+
+  .hamburger_menu {
+    display: block;
+    position: absolute;
+    margin: 0.5em;
+  }
+
+  .hamburger_menu > svg {
+    fill: #415305;
+  }
+
+  .add_car_container > form {
+    font-size: small;
+  }
+
+  .add_car_field > button {
+    font-size: small;
+  }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: smaller;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+  .nav_container {
+    width: 42vw;
+    display: none !important;
+  }
+
+  .nav_socials_container > .nav_socials > svg {
+    font-size: large;
+  }
+
+  .hamburger_menu {
+    display: block;
+    position: absolute;
+    margin: 0.5em;
+  }
+
+  .hamburger_menu > svg {
+    fill: #415305;
+  }
+
+  .add_car_container > form {
+    font-size: medium;
+  }
+
+  .add_car_field > button {
+    font-size: medium;
+  }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: smaller;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 850px) {
+  .nav_container {
+    width: 35vw;
+    display: none !important;
+  }
+
+  .hamburger_menu {
+    display: block;
+    position: absolute;
+    margin: 0.5em;
+  }
+
+  .hamburger_menu > svg {
+    fill: #415305;
+  }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: medium;
+  }
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1200px) {
+  .nav_container {
+    width: 25vw;
+  }
+
+  .nav_socials_container > .nav_socials > svg {
+    font-size: larger;
+  }
+
+  .log_out_btn {
+    width: 120px;
+    height: 50px;
+    font-size: medium;
+  }
+}
+
+.show_nav {
+  display: block !important;
+  position: fixed;
+  background-color: #f9f9f9;
+}
